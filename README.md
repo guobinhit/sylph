@@ -19,6 +19,6 @@ go get github.com/guobinhit/sylph
 Secondly, use it:
 ```go
 aIntPtr := pointer.Int(1120)
-aInt := unponinter.IntOrDefault(1120)
+aInt := unpointer.IntOrDefault(1120)
 ```
 Finally, good luck guys!
