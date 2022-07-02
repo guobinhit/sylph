@@ -8,6 +8,14 @@ func IntOrDefault(i *int) int {
 	return *i
 }
 
+// Int8OrDefault Return default value if i is nil
+func Int8OrDefault(i *int8) int8 {
+	if i == nil {
+		return int8(0)
+	}
+	return *i
+}
+
 // Int16OrDefault Return default value if i is nil
 func Int16OrDefault(i *int16) int16 {
 	if i == nil {
@@ -40,7 +48,7 @@ func Float32OrDefault(f *float32) float32 {
 	return *f
 }
 
-// Float64OrDefault Return default value if b is nil
+// Float64OrDefault Return default value if f is nil
 func Float64OrDefault(f *float64) float64 {
 	if f == nil {
 		return float64(0)

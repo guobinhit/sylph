@@ -19,7 +19,7 @@ func TestIntOrDefault(t *testing.T) {
 			args: args{
 				i: pointer.Int(1120),
 			},
-			want: 1120,
+			want: int(1120),
 		},
 		{
 			name: "IntOrDefault 2",
@@ -33,6 +33,39 @@ func TestIntOrDefault(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := IntOrDefault(tt.args.i); got != tt.want {
 				t.Errorf("IntOrDefault() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestInt8OrDefault(t *testing.T) {
+	type args struct {
+		i *int8
+	}
+	tests := []struct {
+		name string
+		args args
+		want int8
+	}{
+		{
+			name: "Int8OrDefault 1",
+			args: args{
+				i: pointer.Int8(8),
+			},
+			want: int8(8),
+		},
+		{
+			name: "Int8OrDefault 2",
+			args: args{
+				i: nil,
+			},
+			want: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Int8OrDefault(tt.args.i); got != tt.want {
+				t.Errorf("Int8OrDefault() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -52,7 +85,7 @@ func TestInt16OrDefault(t *testing.T) {
 			args: args{
 				i: pointer.Int16(1120),
 			},
-			want: 1120,
+			want: int16(1120),
 		},
 		{
 			name: "Int16OrDefault 2",
@@ -85,7 +118,7 @@ func TestInt32OrDefault(t *testing.T) {
 			args: args{
 				i: pointer.Int32(1120),
 			},
-			want: 1120,
+			want: int32(1120),
 		},
 		{
 			name: "Int32OrDefault 2",
@@ -118,7 +151,7 @@ func TestInt64OrDefault(t *testing.T) {
 			args: args{
 				i: pointer.Int64(1120),
 			},
-			want: 1120,
+			want: int64(1120),
 		},
 		{
 			name: "Int64OrDefault 2",
@@ -151,7 +184,7 @@ func TestFloat32OrDefault(t *testing.T) {
 			args: args{
 				f: pointer.Float32(1120),
 			},
-			want: 1120,
+			want: float32(1120),
 		},
 		{
 			name: "Float32OrDefault 2",
@@ -184,7 +217,7 @@ func TestFloat64OrDefault(t *testing.T) {
 			args: args{
 				f: pointer.Float64(1120),
 			},
-			want: 1120,
+			want: float64(1120),
 		},
 		{
 			name: "Float64OrDefault 2",

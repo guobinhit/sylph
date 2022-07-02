@@ -31,6 +31,32 @@ func TestInt(t *testing.T) {
 	}
 }
 
+func TestInt8(t *testing.T) {
+	type args struct {
+		i int8
+	}
+	tests := []struct {
+		name string
+		args args
+		want *int8
+	}{
+		{
+			name: "Int8",
+			args: args{
+				i: int8(1),
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := Int8(tt.args.i)
+			if got == nil || reflect.ValueOf(got).Kind() != reflect.Ptr {
+				t.Errorf("Int() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestInt16(t *testing.T) {
 	type args struct {
 		i int16
