@@ -6,6 +6,14 @@ commit](https://img.shields.io/github/last-commit/guobinhit/sylph.svg)![issues](
 Sylph is the fairy of the wind. It is said that the breeze is the whisper of the fairy. Anyone with a pure heart will
 eventually become Sylph.
 
+# Contributing
+
+Contributions are very welcome!
+
+If you see a problem that you'd like to see fixed, the best way to make it happen is to help out by submitting a pull request implementing it. Refer to the [CONTRIBUTING.md](https://github.com/guobinhit/myleetcode/blob/master/CONTRIBUTING.md) file for more details about the workflow.
+
+You can also ask for problem-solving ideas and discuss in GitHub issues directly.
+
 # INDEX
 
 - [Overview](#overview)
