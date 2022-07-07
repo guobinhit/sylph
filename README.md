@@ -48,7 +48,7 @@ Secondly, use it:
 ```go
 aRandInt := math.RangeRandomLCRO(1, 10)
 aIntPtr := pointer.Int(413)
-aInt := unpointer.IntOrDefault(413)
+aInt := unpointer.IntOrDefault(pointer.Int(413), 0)
 aBool := slice.StringContainsIgnoreCase([]sring{"abc", "efg"}, "ABC")
 aBool2 := string.EqualsIgnoreCase("abc", "ABC")
 ```
