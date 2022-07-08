@@ -19,11 +19,16 @@ Now `sylph` project structure is:
 
 ## Code style
 
-- TODO
+- Package Name, use low case letter and split by `_` when words more than one.
+- Method Param, use abbreviated letters，such as `i` means `int`.
 
 ## Commit style
 
-- Specify commit prefix, such as `feat:`、`fix:` and `doc:`.
+Specify commit prefix, such as `feat:`、`fix:` and `doc:`:
+
+- `feat:`, when commit content are new functions, use this prefix.
+- `fix:`, when commit content are fix bugs , use this prefix.
+- `doc:`, when commit content only modify docs, use this prefix.
 
 
 
