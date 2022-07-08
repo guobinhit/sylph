@@ -27,7 +27,7 @@ In `common` package, provides some practical util, as below:
 - `pointer`: convert base type to pointer, such as `Int`.
 - `slice`: check base type slice contains target element or not, such as `StringContainsIgnoreCase`.
 - `string`: check string element equals or not, can ignore case, such as `EqualsIgnoreCase`.
-- `unpointer`: convert pointer to base type, such as `Int64`.
+- `unpointer`: convert pointer to base type, such as `Int64OrDefault`.
 - `util`: includes some practical util, such as `If`.
 
 In `constant` package, provides some practical constant definitions, as below:
