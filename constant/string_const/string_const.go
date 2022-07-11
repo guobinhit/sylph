@@ -1,6 +1,6 @@
 package string_const
 
-// Define common string type constant
+// Define common strings type constant
 const (
 	EmptyString  = ""
 	BlankString  = " "

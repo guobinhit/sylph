@@ -23,12 +23,14 @@ You can also ask for problem-solving ideas and discuss in GitHub issues directly
 
 In `common` package, provides some practical util, as below:
 
-- `math`: includes some practical math util, such as `RangeRandomLCRO`.
-- `pointer`: convert base type to pointer, such as `Int`.
-- `slice`: check base type slice contains target element or not, such as `StringContainsIgnoreCase`.
-- `string`: check string element equals or not, can ignore case, such as `EqualsIgnoreCase`.
-- `unpointer`: convert pointer to base type, such as `Int64OrDefault`.
-- `util`: includes some practical util, such as `If`.
+- `dates`: includes some practical date util, such as `GetTodayStart`.
+- `maps`: includes some practical map util, such as `Keys`.
+- `maths`: includes some practical math util, such as `RangeRandomLCRO`.
+- `pointers`: convert base type to pointer, such as `Int`.
+- `slices`: check base type slice contains target element or not, such as `StringContainsIgnoreCase`.
+- `strings`: check string element equals or not, can ignore case, such as `EqualsIgnoreCase`.
+- `unpointers`: convert pointer to base type, such as `Int64OrDefault`.
+- `utils`: includes some practical util, such as `If`.
 
 In `constant` package, provides some practical constant definitions, as below:
 
@@ -46,11 +48,12 @@ go get github.com/guobinhit/sylph
 Secondly, use it:
 
 ```go
-aRandInt := math.RangeRandomLCRO(1, 10)
-aIntPtr := pointer.Int(413)
-aInt := unpointer.IntOrDefault(pointer.Int(413), 0)
-aBool := slice.StringContainsIgnoreCase([]sring{"abc", "efg"}, "ABC")
-aBool2 := string.EqualsIgnoreCase("abc", "ABC")
+aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
+aRandInt := maths.RangeRandomLCRO(1, 10)
+aIntPtr := pointers.Int(413)
+aInt := unpointers.IntOrDefault(pointer.Int(413), 0)
+aBool := slices.StringContainsIgnoreCase([]sring{"abc", "efg"}, "ABC")
+aBool2 := strings.EqualsIgnoreCase("abc", "ABC")
 ```
 
 Finally, good luck guys!

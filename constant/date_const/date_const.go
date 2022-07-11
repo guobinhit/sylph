@@ -1,6 +1,6 @@
 package date_const
 
-// Define date format constant
+// Define dates format constant
 const (
 	// MmDd Date format of common version
 	MmDd              = "01-02"
