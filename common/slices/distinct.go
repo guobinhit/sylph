@@ -6,11 +6,11 @@ func DistinctSliceInt(s []int) []int {
 		return s
 	}
 	ans := make([]int, 0)
-	aMap := make(map[int]bool)
+	aMap := make(map[int]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -22,11 +22,11 @@ func DistinctSliceInt8(s []int8) []int8 {
 		return s
 	}
 	ans := make([]int8, 0)
-	aMap := make(map[int8]bool)
+	aMap := make(map[int8]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -38,11 +38,11 @@ func DistinctSliceInt16(s []int16) []int16 {
 		return s
 	}
 	ans := make([]int16, 0)
-	aMap := make(map[int16]bool)
+	aMap := make(map[int16]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -54,11 +54,11 @@ func DistinctSliceInt32(s []int32) []int32 {
 		return s
 	}
 	ans := make([]int32, 0)
-	aMap := make(map[int32]bool)
+	aMap := make(map[int32]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -70,11 +70,11 @@ func DistinctSliceInt64(s []int64) []int64 {
 		return s
 	}
 	ans := make([]int64, 0)
-	aMap := make(map[int64]bool)
+	aMap := make(map[int64]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -86,11 +86,11 @@ func DistinctSliceFloat32(s []float32) []float32 {
 		return s
 	}
 	ans := make([]float32, 0)
-	aMap := make(map[float32]bool)
+	aMap := make(map[float32]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -102,11 +102,11 @@ func DistinctSliceFloat64(s []float64) []float64 {
 		return s
 	}
 	ans := make([]float64, 0)
-	aMap := make(map[float64]bool)
+	aMap := make(map[float64]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
@@ -118,11 +118,11 @@ func DistinctSliceString(s []string) []string {
 		return s
 	}
 	ans := make([]string, 0)
-	aMap := make(map[string]bool)
+	aMap := make(map[string]struct{})
 	for _, i := range s {
-		if ok := aMap[i]; !ok {
+		if _, ok := aMap[i]; !ok {
 			ans = append(ans, i)
-			aMap[i] = true
+			aMap[i] = struct{}{}
 		}
 	}
 	return ans
