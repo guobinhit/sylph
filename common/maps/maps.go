@@ -2,7 +2,7 @@ package maps
 
 import "reflect"
 
-// Keys return map's keys as unordered slices.
+// Keys return map's keys as unordered slice.
 func Keys(mp interface{}) interface{} {
 	mpValue := reflect.ValueOf(mp)
 	mpLen := mpValue.Len()
