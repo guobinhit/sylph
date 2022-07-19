@@ -48,6 +48,7 @@ go get github.com/guobinhit/sylph
 Secondly, use it:
 
 ```go
+aDate := dates.GetTimeAddDays(time.Now(), 10)
 aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
 aRandInt := maths.RangeRandomLCRO(1, 10)
 aIntPtr := pointers.Int(413)
