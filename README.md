@@ -25,6 +25,8 @@ You can also ask for problem-solving ideas and discuss in GitHub issues directly
 In `common` package, provides some practical util, as below:
 
 - `dates`: includes some practical date util, such as `GetTodayStart`.
+  - `format`: format a `time` value to `string`, such as `GetYyyyMmDdHhMmSs`,
+  - `parse`: parse a `string` value to `time`, such as `GetYyyyMmDdHhMmSs`,
 - `maps`: includes some practical map util, such as `Keys`.
 - `maths`: includes some practical math util, such as `RangeRandomLCRO`.
 - `pointers`: convert base type to pointer, such as `Int`.
@@ -50,6 +52,8 @@ Secondly, use it:
 
 ```go
 aDate := dates.GetTimeAddDays(time.Now(), 10)
+aString := format.GetYyyyMmDdHhMmSs(time.Now())
+aTime, err := parse.GetYyyyMmDdHhMmSs("2022-04-13 10:20:30")
 aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
 aRandInt := maths.RangeRandomLCRO(1, 10)
 aIntPtr := pointers.Int(413)
