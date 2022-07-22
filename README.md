@@ -19,8 +19,10 @@ You can also ask for problem-solving ideas and discuss in GitHub issues directly
 
 - [Overview](#overview)
 - [Usage](#usage)
+  - [common](#common)
+  - [constant](#constant)
 
-## Overview
+# Overview
 
 In `common` package, provides some practical util, as below:
 
@@ -40,7 +42,7 @@ In `constant` package, provides some practical constant definitions, as below:
 - `date_const`: includes some dates format constant, such as `YyyyMmDdHhMmSs`.
 - `string_const`: includes some string constant, such as `EmptyString`.
 
-## Usage
+# Usage
 
 Firstly, download this pkg,
 
@@ -50,6 +52,7 @@ go get github.com/guobinhit/sylph
 
 Secondly, use it.
 
+## common
 ### dates
 
 ```go
@@ -59,59 +62,103 @@ import (
     "github.com/guobinhit/sylph/common/dates/parse"
 )
 
-// Get a specified time by add days, such as d is 2022-04-13 10:20:30 and days is 10, then aDate is 2022-04-23 10:20:30
+// Get a specified time by add days, such as d is 2022-04-13 10:20:30 and days is 10,
+// then aDate is 2022-04-23 10:20:30
 aDate := dates.GetTimeAddDays(time.Now(), 10)
 
-// Get a specified date format time string, such as d is 2022-04-13 10:20:30.999, then aString is "2022-04-23 10:20:30"
+// Get a specified date format time string, such as d is 2022-04-13 10:20:30.999,
+// then aString is "2022-04-23 10:20:30"
 aString := format.GetYyyyMmDdHhMmSs(time.Now())
 
-// Get a specified date format time string of china version, such as d is 2022-04-13 10:20:30.999, then aString is "2022年04月23日 10:20:30"
+// Get a specified date format time string of china version, such as d is 2022-04-13 10:20:30.999,
+// then aString is "2022年04月23日 10:20:30"
 aString2 := format.GetCnOfYyyyMmDdHhMmSs(time.Now())
 
-// Get a specified date format time, such as dStr is "2022-04-13 10:20:30", then aTime is 2022-04-23 10:20:30
+// Get a specified date format time, such as dStr is "2022-04-13 10:20:30",
+// then aTime is 2022-04-23 10:20:30
 aTime, err := parse.GetYyyyMmDdHhMmSs("2022-04-13 10:20:30")
 ```
 
 ### maps
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/maps"
+)
+
 aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
 ```
 
 ### maths
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/maths"
+)
+
 aRandInt := maths.RangeRandomLCRO(1, 10)
 ```
 
 ### pointers
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/pointers"
+)
+
 aIntPtr := pointers.Int(413)
 ```
 
 ### unpointers
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/unpointers"
+)
+
 aInt := unpointers.IntOrDefault(pointer.Int(413), 0)
 ```
 
 ### slices
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/slices"
+)
+
 aBool := slices.StringContainsIgnoreCase([]sring{"abc", "efg"}, "ABC")
 ```
 
 ### strings
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/strings"
+)
+
 aBool := strings.EqualsIgnoreCase("abc", "ABC")
 ```
 
 ### utils
 
 ```go
+import (
+    "github.com/guobinhit/sylph/common/utils"
+)
+
 aJsonString := utils.Json(struct{Value string}{Value: "sylph"})
+```
+
+## constant
+
+```go
+import (
+    "github.com/guobinhit/sylph/constant/date_const"
+    "github.com/guobinhit/sylph/constant/string_const"
+)
+
+aYyyyMmDdHhMmSsFormat := date_const.YyyyMmDdHhMmSs
+aEnglishComma := string_const.EnglishComma
 ```
 
 Finally, good luck guys!
