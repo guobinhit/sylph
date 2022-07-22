@@ -26,7 +26,7 @@ In `common` package, provides some practical util, as below:
 
 - `dates`: includes some practical date util, such as `GetTodayStart`.
   - `format`: format a `time` value to `string`, such as `GetYyyyMmDdHhMmSs`,
-  - `parse`: parse a `string` value to `time`, such as `GetYyyyMmDdHhMmSs`,
+  - `parse`: parse a `string` value to `time`, such as `GetYyyyMmDdHhMmSs`.
 - `maps`: includes some practical map util, such as `Keys`.
 - `maths`: includes some practical math util, such as `RangeRandomLCRO`.
 - `pointers`: convert base type to pointer, such as `Int`.
@@ -37,7 +37,7 @@ In `common` package, provides some practical util, as below:
 
 In `constant` package, provides some practical constant definitions, as below:
 
-- `date_const`: includes some dates format constant, such as `EnOfYyyyMmDdHhMmSs`.
+- `date_const`: includes some dates format constant, such as `YyyyMmDdHhMmSs`.
 - `string_const`: includes some string constant, such as `EmptyString`.
 
 ## Use Example

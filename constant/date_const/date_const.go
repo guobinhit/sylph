@@ -32,11 +32,12 @@ const (
 	EnOfYyyyMmDdHhMmSsSss = "2006/01/02 15:04:05.000"
 
 	// CnOfMmDd Date format of china version
-	CnOfMmDd           = "01月02日"
-	CnOfYyyyMm         = "2006年01月"
-	CnOfYyyyMmDd       = "2006年01月02日"
-	CnOfMmDdHhMm       = "01月02日 15:04"
-	CnOfMmDdHhMmSs     = "01月02日 15:04:05"
-	CnOfYyyyMmDdHhMm   = "2006年01月02日 15:04"
-	CnOfYyyyMmDdHhMmSs = "2006年01月02日 15:04:05"
+	CnOfMmDd              = "01月02日"
+	CnOfYyyyMm            = "2006年01月"
+	CnOfYyyyMmDd          = "2006年01月02日"
+	CnOfMmDdHhMm          = "01月02日 15:04"
+	CnOfMmDdHhMmSs        = "01月02日 15:04:05"
+	CnOfYyyyMmDdHhMm      = "2006年01月02日 15:04"
+	CnOfYyyyMmDdHhMmSs    = "2006年01月02日 15:04:05"
+	CnOfYyyyMmDdHhMmSsSss = "2006年01月02日 15:04:05.000"
 )
