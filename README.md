@@ -86,7 +86,13 @@ import (
     "github.com/guobinhit/sylph/common/maps"
 )
 
+// Get a slice from map, element of slice is key of map, such as map is {"a":1, "b":2}
+// then aKeySlice is {"a", "b"}
 aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
+
+// Get a slice from map, element of slice is value of map, such as map is {"a":1, "b":2}
+// then aValueSlice is {1, 2}
+aValueSlice := maps.Values(map[string]string{"a":1, "b":2})
 ```
 
 ### maths
@@ -96,7 +102,17 @@ import (
     "github.com/guobinhit/sylph/common/maths"
 )
 
+// Get a random int value, LCRC means left close right close, left is 1, right is 10
+// then min value of aRandInt is 1, max value of aRandInt is 10
+aRandInt := maths.RangeRandomLCRC(1, 10)
+
+// Get a random int value, LCRC means left close right open, left is 1, right is 10
+// then min value of aRandInt is 1, max value of aRandInt is 9
 aRandInt := maths.RangeRandomLCRO(1, 10)
+
+// Get a random int value, LCRC means left open right close, left is 1, right is 10
+// then min value of aRandInt is 2, max value of aRandInt is 9
+aRandInt := maths.RangeRandomLORO(1, 10)
 ```
 
 ### pointers
@@ -106,6 +122,7 @@ import (
     "github.com/guobinhit/sylph/common/pointers"
 )
 
+// Get a pointer type of int, supports int, int8, int16, int32, int64, float32, float64 and string
 aIntPtr := pointers.Int(413)
 ```
 
@@ -116,7 +133,12 @@ import (
     "github.com/guobinhit/sylph/common/unpointers"
 )
 
-aInt := unpointers.IntOrDefault(pointer.Int(413), 0)
+// Get a base type value from pointer, supports int, int8, int16, int32, int64, float32, float64 and string
+aInt := unpointers.Int(pointer.Int(413), 0)
+
+// Get a base type value or default value from pointer, if pointer is nil, then return default value,
+// supports int, int8, int16, int32, int64, float32, float64 and string
+aIntOrDefault := unpointers.IntOrDefault(pointer.Int(413), 0)
 ```
 
 ### slices
@@ -146,7 +168,7 @@ import (
     "github.com/guobinhit/sylph/common/utils"
 )
 
-aJsonString := utils.Json(struct{Value string}{Value: "sylph"})
+aJsonString := utils.Json(struct{Value string `json:"value"`}{Value: "sylph"})
 ```
 
 ## constant
