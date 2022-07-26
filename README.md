@@ -106,11 +106,11 @@ import (
 // then min value of aRandInt is 1, max value of aRandInt is 10
 aRandInt := maths.RangeRandomLCRC(1, 10)
 
-// Get a random int value, LCRC means left close right open, left is 1, right is 10
+// Get a random int value, LCRO means left close right open, left is 1, right is 10
 // then min value of aRandInt is 1, max value of aRandInt is 9
 aRandInt := maths.RangeRandomLCRO(1, 10)
 
-// Get a random int value, LCRC means left open right close, left is 1, right is 10
+// Get a random int value, LORO means left open right open, left is 1, right is 10
 // then min value of aRandInt is 2, max value of aRandInt is 9
 aRandInt := maths.RangeRandomLORO(1, 10)
 ```
@@ -148,7 +148,20 @@ import (
     "github.com/guobinhit/sylph/common/slices"
 )
 
-aBool := slices.StringContainsIgnoreCase([]sring{"abc", "efg"}, "ABC")
+// Get a distinct slice from param slice, such as param s is {"a","b", "c", "a"},
+// then aDistinctSlice is {"a","b", "c"}
+aDistinctSlice := slice.DistinctSliceString([]string{"a","b", "c", "a"})
+
+// Get a bool value, if slice param contains specified element e return true, else return false,
+// such as s is {"a","b", "c"}, e is "c", then aContainBool true.
+// Like StringContains method, StringContainsIgnoreCase method can ignore case.
+aContainBool := slice.StringContains([]string{"a","b", "c"}, "c")
+
+// Get a filter slice, applies a fn to each element of s, return a slices of make fn true,
+// such as fn is func(v string) bool { return len(v) > 4} and s is {"abc", "zora"},
+// then aFilterSlice is {"zora"}.
+// Like StringContains method, AllString and AnyString method can provide similar functions.
+aFilterSlice := slice.FilterString([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
 ```
 
 ### strings
