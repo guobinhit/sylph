@@ -66,13 +66,21 @@ import (
 // then aDate is 2022-04-23 10:20:30
 aDate := dates.GetTimeAddDays(time.Now(), 10)
 
-// Get a specified date format time string, such as d is 2022-04-13 10:20:30.999,
+// Get a specified date format time string of common version, such as d is 2022-04-13 10:20:30,
 // then aString is "2022-04-23 10:20:30"
 aString := format.GetYyyyMmDdHhMmSs(time.Now())
 
-// Get a specified date format time string of china version, such as d is 2022-04-13 10:20:30.999,
-// then aString is "2022年04月23日 10:20:30"
+// Get a specified date format time string of china version, such as d is 2022-04-13 10:20:30,
+// then aString2 is "2022年04月23日 10:20:30"
 aString2 := format.GetCnOfYyyyMmDdHhMmSs(time.Now())
+
+// Get a specified date format time string of english version, such as d is 2022-04-13 10:20:30,
+// then aString3 is "2022/04/23 10:20:30"
+aString3 := format.GetEnOfYyyyMmDdHhMmSs(time.Now())
+
+// Get a specified date format time string of compact version, such as d is 2022-04-13 10:20:30,
+// then aString4 is "20220423102030"
+aString4 := format.GetCptOfYyyyMmDdHhMmSs(time.Now())
 
 // Get a specified date format time, such as dStr is "2022-04-13 10:20:30",
 // then aTime is 2022-04-23 10:20:30
