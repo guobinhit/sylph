@@ -55,22 +55,22 @@ func TestAnyInt64(t *testing.T) {
 	}))
 }
 
-func TestAnFloat32(t *testing.T) {
+func TestAnyFloat32(t *testing.T) {
 	is := assert.New(t)
-	is.Equal(true, AllFloat32([]float32{11, 20}, func(v float32) bool {
+	is.Equal(true, AnyFloat32([]float32{11, 20}, func(v float32) bool {
 		return v > 0
 	}))
-	is.Equal(false, AllFloat32([]float32{11, 20}, func(v float32) bool {
+	is.Equal(true, AnyFloat32([]float32{11, 20}, func(v float32) bool {
 		return v > 15
 	}))
 }
 
-func TestAnFloat64(t *testing.T) {
+func TestAnyFloat64(t *testing.T) {
 	is := assert.New(t)
-	is.Equal(true, AllFloat64([]float64{11, 20}, func(v float64) bool {
+	is.Equal(true, AnyFloat64([]float64{11, 20}, func(v float64) bool {
 		return v > 0
 	}))
-	is.Equal(false, AllFloat64([]float64{11, 20}, func(v float64) bool {
+	is.Equal(true, AnyFloat64([]float64{11, 20}, func(v float64) bool {
 		return v > 15
 	}))
 }

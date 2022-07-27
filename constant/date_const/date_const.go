@@ -13,13 +13,12 @@ const (
 	YyyyMmDdHhMmSs    = "2006-01-02 15:04:05"
 	YyyyMmDdHhMmSsSss = "2006-01-02 15:04:05.000"
 
-	// CompactOfYyyyMm Date format of compact version
-	CompactOfYyyyMm            = "200601"
-	CompactOfYyyyMmDd          = "20060102"
-	CompactOfYyyyMmDdHh        = "2006010215"
-	CompactOfYyyyMmDdHhMm      = "200601021504"
-	CompactOfYyyyMmDdHhMmSs    = "20060102150405"
-	CompactOfYyyyMmDdHhMmSsSss = "20060102150405000"
+	// CptOfYyyyMm Date format of compact version
+	CptOfYyyyMm         = "200601"
+	CptOfYyyyMmDd       = "20060102"
+	CptOfYyyyMmDdHh     = "2006010215"
+	CptOfYyyyMmDdHhMm   = "200601021504"
+	CptOfYyyyMmDdHhMmSs = "20060102150405"
 
 	// EnOfMmDd Date format of english version
 	EnOfMmDd              = "01/02"

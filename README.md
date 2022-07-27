@@ -122,7 +122,7 @@ import (
     "github.com/guobinhit/sylph/common/pointers"
 )
 
-// Get a pointer type of int, supports int, int8, int16, int32, int64, float32, float64 and string
+// Get a pointer type of int, supports int, int8, int16, int32, int64, float32, float64 and string.
 aIntPtr := pointers.Int(413)
 ```
 
@@ -133,11 +133,11 @@ import (
     "github.com/guobinhit/sylph/common/unpointers"
 )
 
-// Get a base type value from pointer, supports int, int8, int16, int32, int64, float32, float64 and string
+// Get a base type value from pointer, supports int, int8, int16, int32, int64, float32, float64 and string.
 aInt := unpointers.Int(pointer.Int(413), 0)
 
 // Get a base type value or default value from pointer, if pointer is nil, then return default value,
-// supports int, int8, int16, int32, int64, float32, float64 and string
+// supports int, int8, int16, int32, int64, float32, float64 and string.
 aIntOrDefault := unpointers.IntOrDefault(pointer.Int(413), 0)
 ```
 
@@ -149,19 +149,20 @@ import (
 )
 
 // Get a distinct slice from param slice, such as param s is {"a","b", "c", "a"},
-// then aDistinctSlice is {"a","b", "c"}
-aDistinctSlice := slice.DistinctSliceString([]string{"a","b", "c", "a"})
+// then aDistinctSlice is {"a","b", "c"}.
+aDistinctSlice := slices.DistinctSliceString([]string{"a","b", "c", "a"})
 
 // Get a bool value, if slice param contains specified element e return true, else return false,
 // such as s is {"a","b", "c"}, e is "c", then aContainBool true.
 // Like StringContains method, StringContainsIgnoreCase method can ignore case.
-aContainBool := slice.StringContains([]string{"a","b", "c"}, "c")
+aContainBool := slices.StringContains([]string{"a","b", "c"}, "c")
 
 // Get a filter slice, applies a fn to each element of s, return a slices of make fn true,
-// such as fn is func(v string) bool { return len(v) > 4} and s is {"abc", "zora"},
+// such as fn is func(v string) bool { return len(v) > 3} and s is {"abc", "zora"},
 // then aFilterSlice is {"zora"}.
-// Like StringContains method, AllString and AnyString method can provide similar functions.
-aFilterSlice := slice.FilterString([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
+// Like StringContains method, AllString and AnyString method can provide similar functions,
+// supports int, int8, int16, int32, int64, float32, float64 and string.
+aFilterSlice := slices.FilterString([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
 ```
 
 ### strings
@@ -171,7 +172,13 @@ import (
     "github.com/guobinhit/sylph/common/strings"
 )
 
-aBool := strings.EqualsIgnoreCase("abc", "ABC")
+// Get a bool value, if s1 is equals to s2 return true, else return false,
+// such as s1 is "abc", s2 is "ABC", then aBool is false.
+aBool := strings.Equals("abc", "ABC")
+
+// Get a bool value, if s1 is equals to s2 (ignore case) return true, else return false,
+// such as s1 is "abc", s2 is "ABC", then aBool is true.
+aBool2 := strings.EqualsIgnoreCase("abc", "ABC")
 ```
 
 ### utils
@@ -181,7 +188,14 @@ import (
     "github.com/guobinhit/sylph/common/utils"
 )
 
+// If function similar to ternary operators，if b is ture return f, else return s.
+aValue := utils.If(b, f, s)
+
+// Returns a json format string.
 aJsonString := utils.Json(struct{Value string `json:"value"`}{Value: "sylph"})
+
+// DeepCopy source and target must have the same structure, and target must be a pointer.
+utils.DeepCopy(struct{Value string `json:"value"`}{Value: "sylph"}, &struct{Value string `json:"value"`}{})
 ```
 
 ## constant
@@ -192,7 +206,10 @@ import (
     "github.com/guobinhit/sylph/constant/string_const"
 )
 
+// Define dates format constant, use it directly.
 aYyyyMmDdHhMmSsFormat := date_const.YyyyMmDdHhMmSs
+
+// Define common strings type constant, use it directly.
 aEnglishComma := string_const.EnglishComma
 ```
 
