@@ -13,349 +13,67 @@ func TestIntContains(t *testing.T) {
 }
 
 func TestInt8Contains(t *testing.T) {
-	type args struct {
-		s []int8
-		e int8
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Int8Contains false",
-			args: args{
-				s: []int8{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Int8Contains true",
-			args: args{
-				s: []int8{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Int8Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Int8Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Int8Contains(nil, 0))
+	is.Equal(false, Int8Contains([]int8{1, 2, 3}, 4))
+	is.Equal(true, Int8Contains([]int8{1, 2, 3}, 2))
 }
 
 func TestInt16Contains(t *testing.T) {
-	type args struct {
-		s []int16
-		e int16
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Int16Contains false",
-			args: args{
-				s: []int16{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Int16Contains true",
-			args: args{
-				s: []int16{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Int16Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Int16Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Int16Contains(nil, 0))
+	is.Equal(false, Int16Contains([]int16{1, 2, 3}, 4))
+	is.Equal(true, Int16Contains([]int16{1, 2, 3}, 2))
 }
 
 func TestInt32Contains(t *testing.T) {
-	type args struct {
-		s []int32
-		e int32
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Int32Contains false",
-			args: args{
-				s: []int32{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Int32Contains true",
-			args: args{
-				s: []int32{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Int32Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Int32Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Int32Contains(nil, 0))
+	is.Equal(false, Int32Contains([]int32{1, 2, 3}, 4))
+	is.Equal(true, Int32Contains([]int32{1, 2, 3}, 2))
 }
 
 func TestInt64Contains(t *testing.T) {
-	type args struct {
-		s []int64
-		e int64
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Int64Contains false",
-			args: args{
-				s: []int64{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Int64Contains true",
-			args: args{
-				s: []int64{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Int64Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Int64Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Int64Contains(nil, 0))
+	is.Equal(false, Int64Contains([]int64{1, 2, 3}, 4))
+	is.Equal(true, Int64Contains([]int64{1, 2, 3}, 2))
 }
 
 func TestFloat32Contains(t *testing.T) {
-	type args struct {
-		s []float32
-		e float32
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Float32Contains false",
-			args: args{
-				s: []float32{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Float32Contains true",
-			args: args{
-				s: []float32{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Float32Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Float32Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Float32Contains(nil, 0))
+	is.Equal(false, Float32Contains([]float32{1, 2, 3}, 4))
+	is.Equal(true, Float32Contains([]float32{1, 2, 3}, 2))
 }
 
 func TestFloat64Contains(t *testing.T) {
-	type args struct {
-		s []float64
-		e float64
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "Float64Contains false",
-			args: args{
-				s: []float64{1, 2, 3},
-				e: 4,
-			},
-			want: false,
-		},
-		{
-			name: "Float64Contains true",
-			args: args{
-				s: []float64{1, 2, 3},
-				e: 2,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Float64Contains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("Float64Contains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, Float64Contains(nil, 0))
+	is.Equal(false, Float64Contains([]float64{1, 2, 3}, 4))
+	is.Equal(true, Float64Contains([]float64{1, 2, 3}, 2))
 }
 
 func TestBoolContains(t *testing.T) {
-	type args struct {
-		s []bool
-		e bool
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "BoolContains false",
-			args: args{
-				s: []bool{false, false, false},
-				e: true,
-			},
-			want: false,
-		},
-		{
-			name: "BoolContains true",
-			args: args{
-				s: []bool{false, true, false},
-				e: true,
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := BoolContains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("BoolContains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, BoolContains(nil, false))
+	is.Equal(false, BoolContains([]bool{false, false, false}, true))
+	is.Equal(true, BoolContains([]bool{false, false, false}, false))
 }
 
 func TestStringContains(t *testing.T) {
-	type args struct {
-		s []string
-		e string
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "StringContains false 1",
-			args: args{
-				s: []string{"1", "a", "!"},
-				e: "",
-			},
-			want: false,
-		},
-		{
-			name: "StringContains false 2",
-			args: args{
-				s: []string{"1", "a", "!"},
-				e: "nice",
-			},
-			want: false,
-		},
-		{
-			name: "StringContains true",
-			args: args{
-				s: []string{"1", "a", "!"},
-				e: "a",
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := StringContains(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("StringContains() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, StringContains(nil, ""))
+	is.Equal(false, StringContains([]string{"1", "a", "!"}, ""))
+	is.Equal(false, StringContains([]string{"1", "a", "!"}, "nice"))
+	is.Equal(true, StringContains([]string{"1", "a", "!"}, "a"))
 }
 
 func TestStringContainsIgnoreCase(t *testing.T) {
-	type args struct {
-		s []string
-		e string
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		{
-			name: "StringContainsIgnoreCase false 1",
-			args: args{
-				s: []string{"abC", "eFg", "IGk"},
-				e: "",
-			},
-			want: false,
-		},
-		{
-			name: "StringContainsIgnoreCase false 2",
-			args: args{
-				s: []string{"abC", "eFg", "IGk"},
-				e: "ab",
-			},
-			want: false,
-		},
-		{
-			name: "StringContainsIgnoreCase true 1",
-			args: args{
-				s: []string{"abC", "eFg", "IGk"},
-				e: "abc",
-			},
-			want: true,
-		},
-		{
-			name: "StringContainsIgnoreCase true 2",
-			args: args{
-				s: []string{"abC", "eFg", "IGk"},
-				e: "IGK",
-			},
-			want: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := StringContainsIgnoreCase(tt.args.s, tt.args.e); got != tt.want {
-				t.Errorf("StringContainsIgnoreCase() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	is := assert.New(t)
+	is.Equal(false, StringContainsIgnoreCase(nil, ""))
+	is.Equal(false, StringContainsIgnoreCase([]string{"abC", "eFg", "IGk"}, ""))
+	is.Equal(false, StringContainsIgnoreCase([]string{"abC", "eFg", "IGk"}, "ab"))
+	is.Equal(true, StringContainsIgnoreCase([]string{"abC", "eFg", "IGk"}, "abc"))
+	is.Equal(true, StringContainsIgnoreCase([]string{"abC", "eFg", "IGk"}, "IGK"))
 }
