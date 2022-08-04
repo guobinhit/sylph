@@ -17,3 +17,13 @@ func EqualsIgnoreCase(s1, s2 string) bool {
 	}
 	return true
 }
+
+// StarsWith tests whether the string s begins with prefix, wrapper strings.HasPrefix method.
+func StarsWith(s, prefix string) bool {
+	return strings.HasPrefix(s, prefix)
+}
+
+// EndsWith tests whether the string s begins with prefix, wrapper strings.HasSuffix method.
+func EndsWith(s, suffix string) bool {
+	return strings.HasSuffix(s, suffix)
+}

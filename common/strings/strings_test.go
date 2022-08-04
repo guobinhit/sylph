@@ -23,3 +23,25 @@ func TestEqualsIgnoreCase(t *testing.T) {
 	is.Equal(true, EqualsIgnoreCase("a&b!?c", "a&b!?c"))
 	is.Equal(true, EqualsIgnoreCase("a&b!?c", "A&b!?C"))
 }
+
+func TestStarsWith(t *testing.T) {
+	is := assert.New(t)
+	is.Equal(true, StarsWith("", ""))
+	is.Equal(true, StarsWith("abc", ""))
+	is.Equal(true, StarsWith("abc", "a"))
+	is.Equal(true, StarsWith("abc", "ab"))
+	is.Equal(true, StarsWith("abc", "abc"))
+	is.Equal(false, StarsWith("abc", "abcd"))
+	is.Equal(false, StarsWith("abc", "bc"))
+}
+
+func TestEndsWith(t *testing.T) {
+	is := assert.New(t)
+	is.Equal(true, EndsWith("", ""))
+	is.Equal(true, EndsWith("abc", ""))
+	is.Equal(false, EndsWith("abc", "a"))
+	is.Equal(false, EndsWith("abc", "ab"))
+	is.Equal(true, EndsWith("abc", "abc"))
+	is.Equal(false, EndsWith("abc", "b"))
+	is.Equal(true, EndsWith("abc", "bc"))
+}
