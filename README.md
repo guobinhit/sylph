@@ -104,16 +104,16 @@ import (
 )
 
 // Get a random int value, LCRC means left close right close, left is 1, right is 10
-// then min value of aRandInt is 1, max value of aRandInt is 10
-aRandInt := maths.RangeRandomLCRC(1, 10)
+// then min value of aRandIntOfLCRC is 1, max value of aRandIntOfLCRC is 10
+aRandIntOfLCRC := maths.RangeRandomLCRC(1, 10)
 
 // Get a random int value, LCRO means left close right open, left is 1, right is 10
-// then min value of aRandInt is 1, max value of aRandInt is 9
-aRandInt := maths.RangeRandomLCRO(1, 10)
+// then min value of aRandIntOfLCRO is 1, max value of aRandIntOfLCRO is 9
+aRandIntOfLCRO := maths.RangeRandomLCRO(1, 10)
 
 // Get a random int value, LORO means left open right open, left is 1, right is 10
-// then min value of aRandInt is 2, max value of aRandInt is 9
-aRandInt := maths.RangeRandomLORO(1, 10)
+// then min value of aRandIntOfLORO is 2, max value of aRandIntOfLORO is 9
+aRandIntOfLORO := maths.RangeRandomLORO(1, 10)
 ```
 
 ### pointers
@@ -178,7 +178,7 @@ import (
 aBool := strings.Equals("abc", "ABC")
 
 // Get a bool value, if s1 is equals to s2 (ignore case) return true, else return false,
-// such as s1 is "abc", s2 is "ABC", then aBool is true.
+// such as s1 is "abc", s2 is "ABC", then aBool2 is true.
 aBool2 := strings.EqualsIgnoreCase("abc", "ABC")
 ```
 
