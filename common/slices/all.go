@@ -1,8 +1,8 @@
 package slices
 
-// AllInt applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllInt will return true, else return false.
-func AllInt(s []int, fn func(v int) bool) bool {
+// AllInts applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllInts will return true, else return false.
+func AllInts(s []int, fn func(v int) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -14,9 +14,9 @@ func AllInt(s []int, fn func(v int) bool) bool {
 	return true
 }
 
-// AllInt8 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllInt8 will return true, else return false.
-func AllInt8(s []int8, fn func(v int8) bool) bool {
+// AllInt8s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllInt8s will return true, else return false.
+func AllInt8s(s []int8, fn func(v int8) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -28,9 +28,9 @@ func AllInt8(s []int8, fn func(v int8) bool) bool {
 	return true
 }
 
-// AllInt16 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllInt16 will return true, else return false.
-func AllInt16(s []int16, fn func(v int16) bool) bool {
+// AllInt16s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllInt16s will return true, else return false.
+func AllInt16s(s []int16, fn func(v int16) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -42,9 +42,9 @@ func AllInt16(s []int16, fn func(v int16) bool) bool {
 	return true
 }
 
-// AllInt32 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllInt32 will return true, else return false.
-func AllInt32(s []int32, fn func(v int32) bool) bool {
+// AllInt32s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllInt32s will return true, else return false.
+func AllInt32s(s []int32, fn func(v int32) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -56,9 +56,9 @@ func AllInt32(s []int32, fn func(v int32) bool) bool {
 	return true
 }
 
-// AllInt64 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllInt64 will return true, else return false.
-func AllInt64(s []int64, fn func(v int64) bool) bool {
+// AllInt64s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllInt64s will return true, else return false.
+func AllInt64s(s []int64, fn func(v int64) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -70,9 +70,9 @@ func AllInt64(s []int64, fn func(v int64) bool) bool {
 	return true
 }
 
-// AllFloat32 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllFloat32 will return true, else return false.
-func AllFloat32(s []float32, fn func(v float32) bool) bool {
+// AllFloat32s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllFloat32s will return true, else return false.
+func AllFloat32s(s []float32, fn func(v float32) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -84,9 +84,9 @@ func AllFloat32(s []float32, fn func(v float32) bool) bool {
 	return true
 }
 
-// AllFloat64 applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllFloat64 will return true, else return false.
-func AllFloat64(s []float64, fn func(v float64) bool) bool {
+// AllFloat64s applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllFloat64s will return true, else return false.
+func AllFloat64s(s []float64, fn func(v float64) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
@@ -98,9 +98,9 @@ func AllFloat64(s []float64, fn func(v float64) bool) bool {
 	return true
 }
 
-// AllString applies a fn to each element of s (if s is empty, returns false),
-// if all elements make that fn return true then AllString will return true, else return false.
-func AllString(s []string, fn func(v string) bool) bool {
+// AllStrings applies a fn to each element of s (if s is empty, returns false),
+// if all elements make that fn return true then AllStrings will return true, else return false.
+func AllStrings(s []string, fn func(v string) bool) bool {
 	if len(s) == 0 {
 		return true
 	}

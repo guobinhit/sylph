@@ -2,8 +2,8 @@ package slices
 
 import "strings"
 
-// IntContains returns true if s contain e.
-func IntContains(s []int, e int) bool {
+// ContainInts returns true if s contain e.
+func ContainInts(s []int, e int) bool {
 	if s == nil {
 		return false
 	}
@@ -15,8 +15,8 @@ func IntContains(s []int, e int) bool {
 	return false
 }
 
-// Int8Contains returns true if s contain e.
-func Int8Contains(s []int8, e int8) bool {
+// ContainInt8s returns true if s contain e.
+func ContainInt8s(s []int8, e int8) bool {
 	if s == nil {
 		return false
 	}
@@ -28,8 +28,8 @@ func Int8Contains(s []int8, e int8) bool {
 	return false
 }
 
-// Int16Contains returns true if s contain e.
-func Int16Contains(s []int16, e int16) bool {
+// ContainInt16s returns true if s contain e.
+func ContainInt16s(s []int16, e int16) bool {
 	if s == nil {
 		return false
 	}
@@ -41,8 +41,8 @@ func Int16Contains(s []int16, e int16) bool {
 	return false
 }
 
-// Int32Contains returns true if s contain e.
-func Int32Contains(s []int32, e int32) bool {
+// ContainInt32s returns true if s contain e.
+func ContainInt32s(s []int32, e int32) bool {
 	if s == nil {
 		return false
 	}
@@ -54,8 +54,8 @@ func Int32Contains(s []int32, e int32) bool {
 	return false
 }
 
-// Int64Contains returns true if s contain e.
-func Int64Contains(s []int64, e int64) bool {
+// ContainInt64s returns true if s contain e.
+func ContainInt64s(s []int64, e int64) bool {
 	for _, a := range s {
 		if a == e {
 			return true
@@ -64,8 +64,8 @@ func Int64Contains(s []int64, e int64) bool {
 	return false
 }
 
-// Float32Contains returns true if s contain e.
-func Float32Contains(s []float32, e float32) bool {
+// ContainFloat32s returns true if s contain e.
+func ContainFloat32s(s []float32, e float32) bool {
 	for _, a := range s {
 		if a == e {
 			return true
@@ -74,8 +74,8 @@ func Float32Contains(s []float32, e float32) bool {
 	return false
 }
 
-// Float64Contains returns true if s contain e.
-func Float64Contains(s []float64, e float64) bool {
+// ContainFloat64s returns true if s contain e.
+func ContainFloat64s(s []float64, e float64) bool {
 	for _, a := range s {
 		if a == e {
 			return true
@@ -84,8 +84,8 @@ func Float64Contains(s []float64, e float64) bool {
 	return false
 }
 
-// BoolContains returns true if s contain e.
-func BoolContains(s []bool, e bool) bool {
+// ContainStrings returns true if s contain e.
+func ContainStrings(s []string, e string) bool {
 	for _, a := range s {
 		if a == e {
 			return true
@@ -94,18 +94,8 @@ func BoolContains(s []bool, e bool) bool {
 	return false
 }
 
-// StringContains returns true if s contain e.
-func StringContains(s []string, e string) bool {
-	for _, a := range s {
-		if a == e {
-			return true
-		}
-	}
-	return false
-}
-
-// StringContainsIgnoreCase returns true if s contain e, ignore case of element.
-func StringContainsIgnoreCase(s []string, e string) bool {
+// ContainStringsIgnoreCase returns true if s contain e, ignore case of element.
+func ContainStringsIgnoreCase(s []string, e string) bool {
 	for _, a := range s {
 		if strings.ToLower(a) == strings.ToLower(e) {
 			return true

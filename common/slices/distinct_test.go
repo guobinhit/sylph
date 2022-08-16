@@ -15,28 +15,28 @@ func TestDistinctSliceInt(t *testing.T) {
 		want []int
 	}{
 		{
-			name: "DistinctSliceInt 1",
+			name: "DistinctInts 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceInt 2",
+			name: "DistinctInts 2",
 			args: args{
 				s: []int{},
 			},
 			want: []int{},
 		},
 		{
-			name: "DistinctSliceInt 3",
+			name: "DistinctInts 3",
 			args: args{
 				s: []int{1, 2, 3},
 			},
 			want: []int{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceInt 4",
+			name: "DistinctInts 4",
 			args: args{
 				s: []int{1, 2, 1},
 			},
@@ -45,14 +45,14 @@ func TestDistinctSliceInt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceInt(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceInt() = %v, want %v", got, tt.want)
+			if got := DistinctInts(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctInts() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceInt8(t *testing.T) {
+func TestDistinctInt8s(t *testing.T) {
 	type args struct {
 		s []int8
 	}
@@ -62,28 +62,28 @@ func TestDistinctSliceInt8(t *testing.T) {
 		want []int8
 	}{
 		{
-			name: "DistinctSliceInt8 1",
+			name: "DistinctInt8s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceInt8 2",
+			name: "DistinctInt8s 2",
 			args: args{
 				s: []int8{},
 			},
 			want: []int8{},
 		},
 		{
-			name: "DistinctSliceInt8 3",
+			name: "DistinctInt8s 3",
 			args: args{
 				s: []int8{1, 2, 3},
 			},
 			want: []int8{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceInt8 4",
+			name: "DistinctInt8s 4",
 			args: args{
 				s: []int8{1, 2, 1},
 			},
@@ -92,14 +92,14 @@ func TestDistinctSliceInt8(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceInt8(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceInt8() = %v, want %v", got, tt.want)
+			if got := DistinctInt8s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctInt8s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceInt16(t *testing.T) {
+func TestDistinctInt16s(t *testing.T) {
 	type args struct {
 		s []int16
 	}
@@ -109,28 +109,28 @@ func TestDistinctSliceInt16(t *testing.T) {
 		want []int16
 	}{
 		{
-			name: "DistinctSliceInt16 1",
+			name: "DistinctInt16s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceInt16 2",
+			name: "DistinctInt16s 2",
 			args: args{
 				s: []int16{},
 			},
 			want: []int16{},
 		},
 		{
-			name: "DistinctSliceInt16 3",
+			name: "DistinctInt16s 3",
 			args: args{
 				s: []int16{1, 2, 3},
 			},
 			want: []int16{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceInt16 4",
+			name: "DistinctInt16s 4",
 			args: args{
 				s: []int16{1, 2, 1},
 			},
@@ -139,14 +139,14 @@ func TestDistinctSliceInt16(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceInt16(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceInt16() = %v, want %v", got, tt.want)
+			if got := DistinctInt16s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctInt16s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceInt32(t *testing.T) {
+func TestDistinctInt32s(t *testing.T) {
 	type args struct {
 		s []int32
 	}
@@ -156,28 +156,28 @@ func TestDistinctSliceInt32(t *testing.T) {
 		want []int32
 	}{
 		{
-			name: "DistinctSliceInt32 1",
+			name: "DistinctInt32s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceInt32 2",
+			name: "DistinctInt32s 2",
 			args: args{
 				s: []int32{},
 			},
 			want: []int32{},
 		},
 		{
-			name: "DistinctSliceInt32 3",
+			name: "DistinctInt32s 3",
 			args: args{
 				s: []int32{1, 2, 3},
 			},
 			want: []int32{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceInt32 4",
+			name: "DistinctInt32s 4",
 			args: args{
 				s: []int32{1, 2, 1},
 			},
@@ -186,14 +186,14 @@ func TestDistinctSliceInt32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceInt32(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceInt32() = %v, want %v", got, tt.want)
+			if got := DistinctInt32s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctInt32s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceInt64(t *testing.T) {
+func TestDistinctInt64s(t *testing.T) {
 	type args struct {
 		s []int64
 	}
@@ -203,28 +203,28 @@ func TestDistinctSliceInt64(t *testing.T) {
 		want []int64
 	}{
 		{
-			name: "DistinctSliceInt64 1",
+			name: "DistinctInt64s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceInt64 2",
+			name: "DistinctInt64s 2",
 			args: args{
 				s: []int64{},
 			},
 			want: []int64{},
 		},
 		{
-			name: "DistinctSliceInt64 3",
+			name: "DistinctInt64s 3",
 			args: args{
 				s: []int64{1, 2, 3},
 			},
 			want: []int64{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceInt64 4",
+			name: "DistinctInt64s 4",
 			args: args{
 				s: []int64{1, 2, 1},
 			},
@@ -233,14 +233,14 @@ func TestDistinctSliceInt64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceInt64(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceInt64() = %v, want %v", got, tt.want)
+			if got := DistinctInt64s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctInt64s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceFloat32(t *testing.T) {
+func TestDistinctFloat32s(t *testing.T) {
 	type args struct {
 		s []float32
 	}
@@ -250,28 +250,28 @@ func TestDistinctSliceFloat32(t *testing.T) {
 		want []float32
 	}{
 		{
-			name: "DistinctSliceFloat32 1",
+			name: "DistinctFloat32s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceFloat32 2",
+			name: "DistinctFloat32s 2",
 			args: args{
 				s: []float32{},
 			},
 			want: []float32{},
 		},
 		{
-			name: "DistinctSliceFloat32 3",
+			name: "DistinctFloat32s 3",
 			args: args{
 				s: []float32{1, 2, 3},
 			},
 			want: []float32{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceFloat32 4",
+			name: "DistinctFloat32s 4",
 			args: args{
 				s: []float32{1, 2, 1},
 			},
@@ -280,14 +280,14 @@ func TestDistinctSliceFloat32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceFloat32(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceFloat32() = %v, want %v", got, tt.want)
+			if got := DistinctFloat32s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctFloat32s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceFloat64(t *testing.T) {
+func TestDistinctFloat64s(t *testing.T) {
 	type args struct {
 		s []float64
 	}
@@ -297,28 +297,28 @@ func TestDistinctSliceFloat64(t *testing.T) {
 		want []float64
 	}{
 		{
-			name: "DistinctSliceFloat64 1",
+			name: "DistinctFloat64s 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceFloat64 2",
+			name: "DistinctFloat64s 2",
 			args: args{
 				s: []float64{},
 			},
 			want: []float64{},
 		},
 		{
-			name: "DistinctSliceFloat64 3",
+			name: "DistinctFloat64s 3",
 			args: args{
 				s: []float64{1, 2, 3},
 			},
 			want: []float64{1, 2, 3},
 		},
 		{
-			name: "DistinctSliceFloat64 4",
+			name: "DistinctFloat64s 4",
 			args: args{
 				s: []float64{1, 2, 1},
 			},
@@ -327,14 +327,14 @@ func TestDistinctSliceFloat64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceFloat64(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceFloat64() = %v, want %v", got, tt.want)
+			if got := DistinctFloat64s(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctFloat64s() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDistinctSliceString(t *testing.T) {
+func TestDistinctStrings(t *testing.T) {
 	type args struct {
 		s []string
 	}
@@ -344,28 +344,28 @@ func TestDistinctSliceString(t *testing.T) {
 		want []string
 	}{
 		{
-			name: "DistinctSliceString 1",
+			name: "DistinctStrings 1",
 			args: args{
 				s: nil,
 			},
 			want: nil,
 		},
 		{
-			name: "DistinctSliceString 2",
+			name: "DistinctStrings 2",
 			args: args{
 				s: []string{},
 			},
 			want: []string{},
 		},
 		{
-			name: "DistinctSliceString 3",
+			name: "DistinctStrings 3",
 			args: args{
 				s: []string{"1", "2", "3"},
 			},
 			want: []string{"1", "2", "3"},
 		},
 		{
-			name: "DistinctSliceString 4",
+			name: "DistinctStrings 4",
 			args: args{
 				s: []string{"1", "2", "1"},
 			},
@@ -374,8 +374,8 @@ func TestDistinctSliceString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := DistinctSliceString(tt.args.s); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("DistinctSliceString() = %v, want %v", got, tt.want)
+			if got := DistinctStrings(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("DistinctStrings() = %v, want %v", got, tt.want)
 			}
 		})
 	}

@@ -1,7 +1,7 @@
 package slices
 
-// DistinctSliceInt remove duplicate element in slices.
-func DistinctSliceInt(s []int) []int {
+// DistinctInts remove duplicate element in slices.
+func DistinctInts(s []int) []int {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -16,8 +16,8 @@ func DistinctSliceInt(s []int) []int {
 	return ans
 }
 
-// DistinctSliceInt8 remove duplicate element in slices.
-func DistinctSliceInt8(s []int8) []int8 {
+// DistinctInt8s remove duplicate element in slices.
+func DistinctInt8s(s []int8) []int8 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -32,8 +32,8 @@ func DistinctSliceInt8(s []int8) []int8 {
 	return ans
 }
 
-// DistinctSliceInt16 remove duplicate element in slices.
-func DistinctSliceInt16(s []int16) []int16 {
+// DistinctInt16s remove duplicate element in slices.
+func DistinctInt16s(s []int16) []int16 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -48,8 +48,8 @@ func DistinctSliceInt16(s []int16) []int16 {
 	return ans
 }
 
-// DistinctSliceInt32 remove duplicate element in slices.
-func DistinctSliceInt32(s []int32) []int32 {
+// DistinctInt32s remove duplicate element in slices.
+func DistinctInt32s(s []int32) []int32 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -64,8 +64,8 @@ func DistinctSliceInt32(s []int32) []int32 {
 	return ans
 }
 
-// DistinctSliceInt64 remove duplicate element in slices.
-func DistinctSliceInt64(s []int64) []int64 {
+// DistinctInt64s remove duplicate element in slices.
+func DistinctInt64s(s []int64) []int64 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -80,8 +80,8 @@ func DistinctSliceInt64(s []int64) []int64 {
 	return ans
 }
 
-// DistinctSliceFloat32 remove duplicate element in slices.
-func DistinctSliceFloat32(s []float32) []float32 {
+// DistinctFloat32s remove duplicate element in slices.
+func DistinctFloat32s(s []float32) []float32 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -96,8 +96,8 @@ func DistinctSliceFloat32(s []float32) []float32 {
 	return ans
 }
 
-// DistinctSliceFloat64 remove duplicate element in slices.
-func DistinctSliceFloat64(s []float64) []float64 {
+// DistinctFloat64s remove duplicate element in slices.
+func DistinctFloat64s(s []float64) []float64 {
 	if s == nil || len(s) == 0 {
 		return s
 	}
@@ -112,8 +112,8 @@ func DistinctSliceFloat64(s []float64) []float64 {
 	return ans
 }
 
-// DistinctSliceString remove duplicate element in slices.
-func DistinctSliceString(s []string) []string {
+// DistinctStrings remove duplicate element in slices.
+func DistinctStrings(s []string) []string {
 	if s == nil || len(s) == 0 {
 		return s
 	}

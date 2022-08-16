@@ -32,7 +32,7 @@ In `common` package, provides some practical util, as below:
 - `maps`: includes some practical map util, such as `Keys`.
 - `maths`: includes some practical math util, such as `RangeRandomLCRO`.
 - `pointers`: convert base type to pointer, such as `Int`.
-- `slices`: check base type slice contains target element or not, such as `StringContainsIgnoreCase`.
+- `slices`: check base type slice contains target element or not, such as `ContainStringsIgnoreCase`.
 - `strings`: check string element equals or not, can ignore case, such as `EqualsIgnoreCase`.
 - `unpointers`: convert pointer to base type, such as `Int64OrDefault`.
 - `utils`: includes some practical util, such as `If`.
@@ -151,19 +151,19 @@ import (
 
 // Get a distinct slice from param slice, such as param s is {"a","b", "c", "a"},
 // then aDistinctSlice is {"a","b", "c"}.
-aDistinctSlice := slices.DistinctSliceString([]string{"a","b", "c", "a"})
+aDistinctSlice := slices.DistinctStrings([]string{"a","b", "c", "a"})
 
 // Get a bool value, if slice param contains specified element e return true, else return false,
 // such as s is {"a","b", "c"}, e is "c", then aContainBool true.
-// Like StringContains method, StringContainsIgnoreCase method can ignore case.
-aContainBool := slices.StringContains([]string{"a","b", "c"}, "c")
+// Like ContainStrings method, ContainStringsIgnoreCase method can ignore case.
+aContainBool := slices.ContainStrings([]string{"a","b", "c"}, "c")
 
 // Get a filter slice, applies a fn to each element of s, return a slices of make fn true,
 // such as fn is func(v string) bool { return len(v) > 3} and s is {"abc", "zora"},
 // then aFilterSlice is {"zora"}.
-// Like StringContains method, AllString and AnyString method can provide similar functions,
+// Like ContainStrings method, AllStrings and AnyStrings method can provide similar functions,
 // supports int, int8, int16, int32, int64, float32, float64 and string.
-aFilterSlice := slices.FilterString([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
+aFilterSlice := slices.FilterStrings([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
 ```
 
 ### strings
