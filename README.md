@@ -135,7 +135,7 @@ import (
 )
 
 // Get a base type value from pointer, supports int, int8, int16, int32, int64, float32, float64 and string.
-aInt := unpointers.Int(pointer.Int(413), 0)
+aInt := unpointers.Int(pointer.Int(413))
 
 // Get a base type value or default value from pointer, if pointer is nil, then return default value,
 // supports int, int8, int16, int32, int64, float32, float64 and string.
@@ -159,8 +159,7 @@ aDistinctSlice := slices.DistinctStrings([]string{"a","b", "c", "a"})
 aContainBool := slices.ContainStrings([]string{"a","b", "c"}, "c")
 
 // Get a filter slice, applies a fn to each element of s, return a slices of make fn true,
-// such as fn is func(v string) bool { return len(v) > 3} and s is {"abc", "zora"},
-// then aFilterSlice is {"zora"}.
+// such as fn is func(v string) bool { return len(v) > 3} and s is {"abc", "zora"}, then aFilterSlice is {"zora"}
 // Like ContainStrings method, AllStrings and AnyStrings method can provide similar functions,
 // supports int, int8, int16, int32, int64, float32, float64 and string.
 aFilterSlice := slices.FilterStrings([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
