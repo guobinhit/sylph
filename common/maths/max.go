@@ -5,7 +5,7 @@ import "math"
 // MaxInts returns the largest of elements，panics when values are empty.
 func MaxInts(values ...int) int {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -19,7 +19,7 @@ func MaxInts(values ...int) int {
 // MaxInt8s returns the largest of elements, panics when values are empty.
 func MaxInt8s(values ...int8) int8 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -33,7 +33,7 @@ func MaxInt8s(values ...int8) int8 {
 // MaxInt16s returns the largest of elements, panics when values are empty.
 func MaxInt16s(values ...int16) int16 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -47,7 +47,7 @@ func MaxInt16s(values ...int16) int16 {
 // MaxInt32s returns the largest of elements, panics when values are empty.
 func MaxInt32s(values ...int32) int32 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -61,7 +61,7 @@ func MaxInt32s(values ...int32) int32 {
 // MaxInt64s returns the largest of elements, panics when values are empty.
 func MaxInt64s(values ...int64) int64 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -75,7 +75,7 @@ func MaxInt64s(values ...int64) int64 {
 // MaxFloat64s returns the largest of elements, panics when values are empty.
 func MaxFloat64s(values ...float64) float64 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyMsg)
+		panic(valuesIsEmptyPanicMsg)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {

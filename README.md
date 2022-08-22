@@ -123,7 +123,8 @@ import (
     "github.com/guobinhit/sylph/common/pointers"
 )
 
-// Get a pointer type of int, supports int, int8, int16, int32, int64, float32, float64 and string.
+// Get a pointer type of int, 
+// supports int, int8, int16, int32, int64, float32, float64 and string.
 aIntPtr := pointers.Int(413)
 ```
 
@@ -134,7 +135,8 @@ import (
     "github.com/guobinhit/sylph/common/unpointers"
 )
 
-// Get a base type value from pointer, supports int, int8, int16, int32, int64, float32, float64 and string.
+// Get a base type value from pointer, 
+// supports int, int8, int16, int32, int64, float32, float64 and string.
 aInt := unpointers.Int(pointer.Int(413))
 
 // Get a base type value or default value from pointer, if pointer is nil, then return default value,

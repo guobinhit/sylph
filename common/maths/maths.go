@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	valuesIsEmptyMsg = "values is empty"
+	valuesIsEmptyPanicMsg = "values is empty"
 )
 
 // RangeRandomLCRC returns value in [left, right], LCRC means left close right close.
