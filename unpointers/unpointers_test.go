@@ -1,7 +1,7 @@
 package unpointers
 
 import (
-	"github.com/guobinhit/sylph/common/pointers"
+	"github.com/guobinhit/sylph/pointers"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

@@ -12,6 +12,7 @@ import (
 //  1. arr type is unexpected type,
 //  2. params: pageNum <= 0 or pageLimit <= 0.
 func Page(arr interface{}, pageNum, pageLimit int) (interface{}, bool) {
+	// Check param and type of arr
 	if pageNum <= 0 {
 		panic(fmt.Sprintf("pageNum invalid: %d", pageNum))
 	}
@@ -32,6 +33,7 @@ func Page(arr interface{}, pageNum, pageLimit int) (interface{}, bool) {
 		return reflect.Zero(arrValue.Type()).Interface(), false
 	}
 
+	// Calculate page logic
 	var hasNext bool
 	offsetEnd := offset + pageLimit
 	if offsetEnd < arrLen {

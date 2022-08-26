@@ -9,8 +9,15 @@ This project now provides a practical util of Go. But to maintain a good style, 
 Now `sylph` project structure is:
 
 - sylph:
-    - `common`
     - `constant`
+    - `dates`
+    - `maps`
+    - `maths`
+    - `pointers`
+    - `slices`
+    - `strings`
+    - `unpointers`
+    - `utils`
     - `.gitignore`
     - `CONTRIBUTING.md`
     - `LICENSE`

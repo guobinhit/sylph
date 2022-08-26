@@ -24,7 +24,7 @@ You can also ask for problem-solving ideas and discuss in GitHub issues directly
 
 # Overview
 
-In `common` package, provides some practical util, as below:
+In specified package, provides some practical util, as below:
 
 - `dates`: includes some practical date util, such as `GetTodayStart`.
   - `format`: format a `time` value to `string`, such as `GetYyyyMmDdHhMmSs`,
@@ -57,9 +57,9 @@ Secondly, use it.
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/dates"
-    "github.com/guobinhit/sylph/common/dates/format"
-    "github.com/guobinhit/sylph/common/dates/parse"
+    "github.com/guobinhit/sylph/dates"
+    "github.com/guobinhit/sylph/dates/format"
+    "github.com/guobinhit/sylph/dates/parse"
 )
 
 // Get a specified time by add days, such as d is 2022-04-13 10:20:30 and days is 10,
@@ -84,7 +84,7 @@ aTime, err := parse.GetYyyyMmDdHhMmSs("2022-04-13 10:20:30")
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/maps"
+    "github.com/guobinhit/sylph/maps"
 )
 
 // Get a slice from map, element of slice is key of map, such as map is {"a":1, "b":2}
@@ -100,7 +100,7 @@ aValueSlice := maps.Values(map[string]string{"a":1, "b":2})
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/maths"
+    "github.com/guobinhit/sylph/maths"
 )
 
 // Get a random int value, LCRC means left close right close, left is 1, right is 10
@@ -120,7 +120,7 @@ aRandIntOfLORO := maths.RangeRandomLORO(1, 10)
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/pointers"
+    "github.com/guobinhit/sylph/pointers"
 )
 
 // Get a pointer type of int, 
@@ -132,7 +132,7 @@ aIntPtr := pointers.Int(413)
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/unpointers"
+    "github.com/guobinhit/sylph/unpointers"
 )
 
 // Get a base type value from pointer, 
@@ -148,7 +148,7 @@ aIntOrDefault := unpointers.IntOrDefault(pointer.Int(413), 0)
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/slices"
+    "github.com/guobinhit/sylph/slices"
 )
 
 // Get a distinct slice from param slice, such as param s is {"a","b", "c", "a"},
@@ -171,7 +171,7 @@ aFilterSlice := slices.FilterStrings([]string{"abc", "zora"}, func(v string) boo
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/strings"
+    "github.com/guobinhit/sylph/strings"
 )
 
 // Get a bool value, if s1 is equals to s2 return true, else return false,
@@ -187,7 +187,7 @@ aBool2 := strings.EqualsIgnoreCase("abc", "ABC")
 
 ```go
 import (
-    "github.com/guobinhit/sylph/common/utils"
+    "github.com/guobinhit/sylph/utils"
 )
 
 // If function similar to ternary operators，if b is ture return f, else return s.

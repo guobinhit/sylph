@@ -2,7 +2,7 @@ package slices
 
 import (
 	"fmt"
-	"github.com/guobinhit/sylph/common/utils"
+	"github.com/guobinhit/sylph/utils"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
