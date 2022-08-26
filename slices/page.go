@@ -5,12 +5,11 @@ import (
 	"reflect"
 )
 
-// Page slice and returns the current page results and hasNext mark as copy mode.
-// arr must be a slice.
-// Returns Nil Slice When: (pageNum - 1) * pageLimit > len(arr)
-// Panics When:
+// Page slice and returns the current page results and hasNext mark.
+// Param of arr must be a slice and returns nil slice when: (pageNum - 1) * pageLimit > len(arr).
+// Panics when:
 //  1. arr type is unexpected type,
-//  2. params: pageNum <= 0 or pageLimit <= 0.
+//  2. param: pageNum <= 0 or pageLimit <= 0.
 func Page(arr interface{}, pageNum, pageLimit int) (interface{}, bool) {
 	// Check param and type of arr
 	if pageNum <= 0 {

@@ -1,7 +1,6 @@
 # sylph
 
-![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/sylph/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/sylph/actions/workflows/go.yml)![last
-commit](https://img.shields.io/github/last-commit/guobinhit/sylph.svg)![issues](https://img.shields.io/github/issues/guobinhit/sylph.svg)![stars](https://img.shields.io/github/stars/guobinhit/sylph.svg)![forks](https://img.shields.io/github/forks/guobinhit/sylph.svg)![license](https://img.shields.io/github/license/guobinhit/sylph.svg)
+![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/sylph/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/sylph/actions/workflows/go.yml)![issues](https://img.shields.io/github/issues/guobinhit/sylph.svg)![stars](https://img.shields.io/github/stars/guobinhit/sylph.svg)![forks](https://img.shields.io/github/forks/guobinhit/sylph.svg)![license](https://img.shields.io/github/license/guobinhit/sylph.svg)
 
 
 Sylph is the fairy of the wind. It is said that the breeze is the whisper of the fairy. Anyone with a pure heart will
@@ -19,8 +18,6 @@ You can also ask for problem-solving ideas and discuss in GitHub issues directly
 
 - [Overview](#overview)
 - [Usage](#usage)
-  - [common](#common)
-  - [constant](#constant)
 
 # Overview
 
@@ -52,8 +49,7 @@ go get github.com/guobinhit/sylph
 
 Secondly, use it.
 
-## common
-### dates
+## dates
 
 ```go
 import (
@@ -80,7 +76,7 @@ aString2 := format.GetCnOfYyyyMmDdHhMmSs(time.Now())
 aTime, err := parse.GetYyyyMmDdHhMmSs("2022-04-13 10:20:30")
 ```
 
-### maps
+## maps
 
 ```go
 import (
@@ -96,7 +92,7 @@ aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
 aValueSlice := maps.Values(map[string]string{"a":1, "b":2})
 ```
 
-### maths
+## maths
 
 ```go
 import (
@@ -116,7 +112,7 @@ aRandIntOfLCRO := maths.RangeRandomLCRO(1, 10)
 aRandIntOfLORO := maths.RangeRandomLORO(1, 10)
 ```
 
-### pointers
+## pointers
 
 ```go
 import (
@@ -128,7 +124,7 @@ import (
 aIntPtr := pointers.Int(413)
 ```
 
-### unpointers
+## unpointers
 
 ```go
 import (
@@ -144,7 +140,7 @@ aInt := unpointers.Int(pointer.Int(413))
 aIntOrDefault := unpointers.IntOrDefault(pointer.Int(413), 0)
 ```
 
-### slices
+## slices
 
 ```go
 import (
@@ -165,9 +161,14 @@ aContainBool := slices.ContainStrings([]string{"a","b", "c"}, "c")
 // Like ContainStrings method, AllStrings and AnyStrings method can provide similar functions,
 // supports int, int8, int16, int32, int64, float32, float64 and string.
 aFilterSlice := slices.FilterStrings([]string{"abc", "zora"}, func(v string) bool { return len(v) > 3})
+
+// Paging slice and returns the current page results and hasNext mark,
+// such as arr is {"1", "2", "3","4", "5"}, pageNum is 2 and pageLimit is 2,
+// then aPageSlice is {"3", "4"}, hasNext is true.
+aPageSlice, hasNext := slices.Page([]string{"1", "2", "3","4", "5"}, 2, 2)
 ```
 
-### strings
+## strings
 
 ```go
 import (
@@ -183,7 +184,7 @@ aBool := strings.Equals("abc", "ABC")
 aBool2 := strings.EqualsIgnoreCase("abc", "ABC")
 ```
 
-### utils
+## utils
 
 ```go
 import (
