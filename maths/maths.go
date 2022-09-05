@@ -6,7 +6,9 @@ import (
 )
 
 var (
-	valuesIsEmptyPanicMsg = "values is empty"
+	intBitSize            = 32 << (^uint(0) >> 32 & 1) // size of an int in bits
+	minInt                = -1 << (intBitSize - 1)     // minimum value of int type
+	valuesIsEmptyPanicMsg = "values is empty"          // panic message of value is empty
 )
 
 // RangeRandomLCRC returns value in [left, right], LCRC means left close right close.
