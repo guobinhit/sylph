@@ -2,10 +2,10 @@ package maths
 
 import "math"
 
-// MinInts returns the smallest of elements, panics when values are empty.
+// MinInts returns the smallest of elements, return int(0) when values are empty.
 func MinInts(values ...int) int {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return int(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -16,10 +16,10 @@ func MinInts(values ...int) int {
 	return hitVal
 }
 
-// MinInt8s returns the smallest of elements, panics when values are empty.
+// MinInt8s returns the smallest of elements, return int8(0) when values are empty.
 func MinInt8s(values ...int8) int8 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return int8(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -30,10 +30,10 @@ func MinInt8s(values ...int8) int8 {
 	return hitVal
 }
 
-// MinInt16s returns the smallest of elements, panics when values are empty.
+// MinInt16s returns the smallest of elements, return int16(0) when values are empty.
 func MinInt16s(values ...int16) int16 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return int16(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -44,10 +44,10 @@ func MinInt16s(values ...int16) int16 {
 	return hitVal
 }
 
-// MinInt32s returns the smallest of elements, panics when values are empty.
+// MinInt32s returns the smallest of elements, return int32(0) when values are empty.
 func MinInt32s(values ...int32) int32 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return int32(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -58,10 +58,10 @@ func MinInt32s(values ...int32) int32 {
 	return hitVal
 }
 
-// MinInt64s returns the smallest of elements, panics when values are empty.
+// MinInt64s returns the smallest of elements, return int64(0) when values are empty.
 func MinInt64s(values ...int64) int64 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return int64(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
@@ -72,10 +72,10 @@ func MinInt64s(values ...int64) int64 {
 	return hitVal
 }
 
-// MinFloat64s returns the smallest of elements, panics when values are empty.
+// MinFloat64s returns the smallest of elements, return float64(0) when values are empty.
 func MinFloat64s(values ...float64) float64 {
 	if len(values) == 0 {
-		panic(valuesIsEmptyPanicMsg)
+		return float64(0)
 	}
 	hitVal := values[0]
 	for i := 1; i < len(values); i++ {
