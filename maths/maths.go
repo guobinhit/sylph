@@ -5,11 +5,6 @@ import (
 	"time"
 )
 
-var (
-	intBitSize = 32 << (^uint(0) >> 32 & 1) // size of an int in bits
-	minInt     = -1 << (intBitSize - 1)     // minimum value of int type
-)
-
 // RangeRandomLCRC returns value in [left, right], LCRC means left close right close.
 func RangeRandomLCRC(left, right int) int {
 	rand.Seed(time.Now().UnixNano())

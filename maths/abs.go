@@ -5,21 +5,10 @@ import (
 	"math"
 )
 
-// AbsInt returns the absolute value of v, panic when overflowed.
-func AbsInt(v int) int {
-	if v <= minInt {
-		panic(fmt.Errorf("int overflow: abs(%d)", v))
-	}
-	if v < 0 {
-		v = -v
-	}
-	return v
-}
-
 // AbsInt8 returns the absolute value of v, panic when overflowed.
 func AbsInt8(v int8) int8 {
 	if v <= math.MinInt8 {
-		panic(fmt.Errorf("int8 overflow: abs(%d)", v))
+		panic(fmt.Sprintf("int8 overflow: abs(%d)", v))
 	}
 	if v < 0 {
 		v = -v
@@ -30,7 +19,7 @@ func AbsInt8(v int8) int8 {
 // AbsInt16 returns the absolute value of v, panic when overflowed.
 func AbsInt16(v int16) int16 {
 	if v <= math.MinInt16 {
-		panic(fmt.Errorf("int16 overflow: abs(%d)", v))
+		panic(fmt.Sprintf("int16 overflow: abs(%d)", v))
 	}
 	if v < 0 {
 		v = -v
@@ -41,7 +30,7 @@ func AbsInt16(v int16) int16 {
 // AbsInt32 returns the absolute value of v, panic when overflowed.
 func AbsInt32(v int32) int32 {
 	if v <= math.MinInt32 {
-		panic(fmt.Errorf("int32 overflow: abs(%d)", v))
+		panic(fmt.Sprintf("int32 overflow: abs(%d)", v))
 	}
 	if v < 0 {
 		v = -v
@@ -52,7 +41,7 @@ func AbsInt32(v int32) int32 {
 // AbsInt64 returns the absolute value of v, panic when overflowed.
 func AbsInt64(v int64) int64 {
 	if v <= math.MinInt64 {
-		panic(fmt.Errorf("int64 overflow: abs(%d)", v))
+		panic(fmt.Sprintf("int64 overflow: abs(%d)", v))
 	}
 	if v < 0 {
 		v = -v
