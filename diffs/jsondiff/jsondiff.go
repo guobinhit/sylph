@@ -605,7 +605,7 @@ func (ctx *context) printDiff(a, b interface{}) string {
 	return ctx.finalize(&buf)
 }
 
-// Diff /**
+// Compare /**
 // Compares two JSON documents using given options. Returns difference type and
 // a string describing differences.
 //
@@ -631,8 +631,8 @@ func (ctx *context) printDiff(a, b interface{}) string {
 // human-readable difference between provided JSON documents. It is important
 // to understand that returned format is not a valid JSON and is not meant
 // to be machine-readable.
-func Diff(a, b []byte, opts ...Options) (DiffType, string) {
-	// If len(opts) != 1, then use default options
+func Compare(a, b []byte, opts ...Options) (DiffType, string) {
+	// If len(opts) != 1, then use default json options
 	if len(opts) != 1 {
 		opts = append(opts, DefaultJSONOptions())
 	}

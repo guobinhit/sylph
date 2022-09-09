@@ -5,6 +5,8 @@
 // go-diff is a Go implementation of Google's Diff, Match, and Patch library
 // Original library is Copyright (c) 2006 Google Inc.
 // http://code.google.com/p/google-diff-match-patch/
+//
+// sylph/diffs/textdiff
 
 package textdiff
 
@@ -16,6 +18,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/guobinhit/sylph/maths"
 )
 
 // Patch represents one patch operation.
@@ -83,20 +87,20 @@ func (dmp *DiffMatchPatch) PatchAddContext(patch Patch, text string) Patch {
 	for strings.Index(text, pattern) != strings.LastIndex(text, pattern) &&
 		len(pattern) < dmp.MatchMaxBits-2*dmp.PatchMargin {
 		padding += dmp.PatchMargin
-		maxStart := max(0, patch.Start2-padding)
-		minEnd := min(len(text), patch.Start2+patch.Length1+padding)
+		maxStart := maths.MaxInts(0, patch.Start2-padding)
+		minEnd := maths.MinInts(len(text), patch.Start2+patch.Length1+padding)
 		pattern = text[maxStart:minEnd]
 	}
 	// Add one chunk for good luck.
 	padding += dmp.PatchMargin
 
 	// Add the prefix.
-	prefix := text[max(0, patch.Start2-padding):patch.Start2]
+	prefix := text[maths.MaxInts(0, patch.Start2-padding):patch.Start2]
 	if len(prefix) != 0 {
 		patch.diffs = append([]Diff{Diff{DiffEqual, prefix}}, patch.diffs...)
 	}
 	// Add the suffix.
-	suffix := text[patch.Start2+patch.Length1 : min(len(text), patch.Start2+patch.Length1+padding)]
+	suffix := text[patch.Start2+patch.Length1 : maths.MinInts(len(text), patch.Start2+patch.Length1+padding)]
 	if len(suffix) != 0 {
 		patch.diffs = append(patch.diffs, Diff{DiffEqual, suffix})
 	}
@@ -416,7 +420,7 @@ func (dmp *DiffMatchPatch) PatchSplitMax(patches []Patch) []Patch {
 					bigpatch.diffs = bigpatch.diffs[1:]
 				} else {
 					// Deletion or equality.  Only take as much as we can stomach.
-					diffText = diffText[:min(len(diffText), patchSize-patch.Length1-dmp.PatchMargin)]
+					diffText = diffText[:maths.MinInts(len(diffText), patchSize-patch.Length1-dmp.PatchMargin)]
 
 					patch.Length1 += len(diffText)
 					Start1 += len(diffText)
@@ -437,7 +441,7 @@ func (dmp *DiffMatchPatch) PatchSplitMax(patches []Patch) []Patch {
 			}
 			// Compute the head context for the next patch.
 			precontext = dmp.DiffText2(patch.diffs)
-			precontext = precontext[max(0, len(precontext)-dmp.PatchMargin):]
+			precontext = precontext[maths.MaxInts(0, len(precontext)-dmp.PatchMargin):]
 
 			postcontext := ""
 			// Append the end context for this patch.

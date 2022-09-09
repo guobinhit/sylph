@@ -11,8 +11,7 @@ package textdiff
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
-	"os"
+	"github.com/guobinhit/sylph/utils"
 	"strconv"
 	"strings"
 	"testing"
@@ -264,18 +263,6 @@ func TestDiffHalfMatch(t *testing.T) {
 	} {
 		actual := dmp.DiffHalfMatch(tc.Text1, tc.Text2)
 		assert.Equal(t, tc.Expected, actual, fmt.Sprintf("Test case #%d, %#v", i, tc))
-	}
-}
-
-func BenchmarkDiffHalfMatch(b *testing.B) {
-	s1, s2 := speedtestTexts()
-
-	dmp := New()
-
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		dmp.DiffHalfMatch(s1, s2)
 	}
 }
 
@@ -867,20 +854,6 @@ func TestDiffCleanupSemantic(t *testing.T) {
 	}
 }
 
-func BenchmarkDiffCleanupSemantic(b *testing.B) {
-	s1, s2 := speedtestTexts()
-
-	dmp := New()
-
-	diffs := dmp.DiffMain(s1, s2, false)
-
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		dmp.DiffCleanupSemantic(diffs)
-	}
-}
-
 func TestDiffCleanupEfficiency(t *testing.T) {
 	type TestCase struct {
 		Name string
@@ -1408,7 +1381,6 @@ func TestDiffMainWithTimeout(t *testing.T) {
 	startTime := time.Now()
 	dmp.DiffMain(a, b, true)
 	endTime := time.Now()
-
 	delta := endTime.Sub(startTime)
 
 	// Test that we took at least the timeout period.
@@ -1453,19 +1425,6 @@ func TestDiffMainWithCheckLines(t *testing.T) {
 	}
 }
 
-//func TestMassiveRuneDiffConversion(t *testing.T) {
-//	sNew, err := ioutil.ReadFile("../testdata/fixture.go")
-//	if err != nil {
-//		panic(err)
-//	}
-//
-//	dmp := New()
-//	t1, t2, tt := dmp.DiffLinesToChars("", string(sNew))
-//	diffs := dmp.DiffMain(t1, t2, false)
-//	diffs = dmp.DiffCharsToLines(diffs, tt)
-//	assert.NotEmpty(t, diffs)
-//}
-
 func BenchmarkDiffMain(bench *testing.B) {
 	s1 := "`Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n"
 	s2 := "I am the very model of a modern major general,\nI've information vegetable, animal, and mineral,\nI know the kings of England, and I quote the fights historical,\nFrom Marathon to Waterloo, in order categorical.\n"
@@ -1486,46 +1445,15 @@ func BenchmarkDiffMain(bench *testing.B) {
 	}
 }
 
-func BenchmarkDiffMainLarge(b *testing.B) {
-	s1, s2 := speedtestTexts()
+func Test_DiffMain(t *testing.T) {
+	s1 := "`Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n"
+	s2 := "I am the very model of a modern major general,\nI've information vegetable, animal, and mineral,\nI know the kings of England, and I quote the fights historical,\nFrom Marathon to Waterloo, in order categorical.\n"
 
 	dmp := New()
-
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		dmp.DiffMain(s1, s2, true)
+	diffs := dmp.DiffMain(s1, s2, false)
+	for _, d := range diffs {
+		fmt.Println(d.GetDiffStrType())
+		fmt.Println("----")
 	}
-}
-
-func BenchmarkDiffMainRunesLargeLines(b *testing.B) {
-	s1, s2 := speedtestTexts()
-
-	dmp := New()
-
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		text1, text2, linearray := dmp.DiffLinesToRunes(s1, s2)
-
-		diffs := dmp.DiffMainRunes(text1, text2, false)
-		diffs = dmp.DiffCharsToLines(diffs, linearray)
-	}
-}
-
-func BenchmarkDiffMainRunesLargeDiffLines(b *testing.B) {
-	fp, _ := os.Open("../testdata/diff10klinestest.txt")
-	defer fp.Close()
-	data, _ := ioutil.ReadAll(fp)
-
-	dmp := New()
-
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		text1, text2, linearray := dmp.DiffLinesToRunes(string(data), "")
-
-		diffs := dmp.DiffMainRunes(text1, text2, false)
-		diffs = dmp.DiffCharsToLines(diffs, linearray)
-	}
+	fmt.Println(utils.Json(diffs))
 }

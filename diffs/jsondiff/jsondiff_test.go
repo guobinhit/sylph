@@ -34,7 +34,7 @@ func TestCompare(t *testing.T) {
 	opts := DefaultConsoleOptions()
 	opts.PrintTypes = false
 	for i, c := range compareCases {
-		result, _ := Diff([]byte(c.a), []byte(c.b), opts)
+		result, _ := Compare([]byte(c.a), []byte(c.b), opts)
 		if result != c.result {
 			t.Errorf("case %d failed, got: %s, expected: %s", i, result, c.result)
 		}
@@ -176,7 +176,7 @@ func TestDiffString(t *testing.T) {
 				lopts.SkippedArrayElement = nil
 			}
 			expected := strings.TrimSpace(c.expected)
-			_, diff := Diff([]byte(c.a), []byte(c.b), lopts)
+			_, diff := Compare([]byte(c.a), []byte(c.b), lopts)
 			if diff != expected {
 				t.Errorf("got:\n---\n%s\n---\nexpected:\n---\n%s\n---\n", diff, expected)
 			}
@@ -221,7 +221,7 @@ func TestCompareFloatsWithEpsilon(t *testing.T) {
 		{`{"a": 1e2}`, `{"a": 10e1}`, FullMatch},
 	}
 	for i, c := range floatCases {
-		result, _ := Diff([]byte(c.a), []byte(c.b), opts)
+		result, _ := Compare([]byte(c.a), []byte(c.b), opts)
 		if result != c.result {
 			t.Errorf("case %d failed, got: %s, expected: %s", i, result, c.result)
 		}
@@ -253,7 +253,7 @@ func Test_JsonDiff(t *testing.T) {
 
 	opts := DefaultJSONOptions()
 	opts.SkipMatches = true
-	diffType, diffStr := Diff([]byte(utils.Json(beforeSnapshot)), []byte(utils.Json(afterSnapshot)), opts)
+	diffType, diffStr := Compare([]byte(utils.Json(beforeSnapshot)), []byte(utils.Json(afterSnapshot)), opts)
 	fmt.Println(diffType.String())
 	fmt.Println(diffStr)
 }
