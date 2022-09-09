@@ -51,16 +51,10 @@ func AbsInt64(v int64) int64 {
 
 // AbsFloat32 returns the absolute value of v, panic when overflowed.
 func AbsFloat32(v float32) float32 {
-	if v <= math.MaxFloat32 {
-		panic(fmt.Sprintf("float32 overflow: abs(%f)", v))
-	}
 	return math.Float32frombits(math.Float32bits(v) &^ (1 << 31))
 }
 
 // AbsFloat64 returns the absolute value of v, panic when overflowed.
 func AbsFloat64(v float64) float64 {
-	if v <= math.MaxFloat64 {
-		panic(fmt.Sprintf("float64 overflow: abs(%f)", v))
-	}
 	return math.Abs(v)
 }
