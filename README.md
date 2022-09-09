@@ -25,6 +25,9 @@ In specified package, provides some practical util, as below:
 - `dates`: includes some practical date util, such as `GetTodayStart`.
   - `format`: format a `time` value to `string`, such as `GetYyyyMmDdHhMmSs`,
   - `parse`: parse a `string` value to `time`, such as `GetYyyyMmDdHhMmSs`.
+- `diffs`: includes some diff util, as below:
+  - `jsondiff`: diff json and return difference item.
+  - `textdiff`: diff text and return difference item.
 - `maps`: includes some practical map util, such as `Keys`.
 - `maths`: includes some practical math util, such as `RangeRandomLCRO`.
 - `pointers`: convert base type to pointer, such as `Int`.
@@ -73,6 +76,30 @@ aString2 := format.GetCnOfYyyyMmDdHhMmSs(time.Now())
 // Get a specified date format time, such as dStr is "2022-04-13 10:20:30",
 // then aTime is 2022-04-23 10:20:30
 aTime, err := parse.GetYyyyMmDdHhMmSs("2022-04-13 10:20:30")
+```
+
+## diffs
+
+```go
+import (
+    "github.com/guobinhit/sylph/diffs/jsondiff"
+    "github.com/guobinhit/sylph/diffs/textdiff"
+)
+
+// Build compare param, convert to []byte type, call Compare method,
+// return two result, diffType can ignore, diffStr is compare result.
+firstParam := map[string]interface{}{}
+secondParam := map[string]interface{}{}
+opts := DefaultJSONOptions()
+diffType, diffStr := jsondiff.Compare([]byte(utils.Json(firstParam)), []byte(utils.Json(secondParam)), opts)
+
+// Build compare param, init DiffMatchPatch object, call Diff-style method,
+// return []Diff, but Diff.Type is number, can call GetDiffPrettyStyle method get pretty result.
+text1 := "Hello World"
+text2 := "Hello Girl"
+dmp := textdiff.New()
+diffs := dmp.DiffMain(text1, text2, false)
+fmt.Println(utils.Json(dmp.GetDiffPrettyStyle(diffs)))
 ```
 
 ## maps

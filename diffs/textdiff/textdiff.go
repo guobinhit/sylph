@@ -1,10 +1,8 @@
-// Copyright (c) 2012-2016 The go-diff authors. All rights reserved.
-// https://github.com/sergi/go-diff
-// See the included LICENSE file for license details.
-//
-// go-diff is a Go implementation of Google's Diff, Match, and Patch library
-// Original library is Copyright (c) 2006 Google Inc.
-// http://code.google.com/p/google-diff-match-patch/
+// Copyright 2022 The Sylph Authors. All rights reserved.
+// Use of this source code is governed by a MIT-style
+// license that can be found in the LICENSE file.
+// The original git is located at https://github.com/sergi/go-diff and
+// was involved into https://github.com/guobin/sylph on September 9, 2022.
 
 package textdiff
 
@@ -54,7 +52,7 @@ type Diff struct {
 	Text string
 }
 
-// splice removes amount elements from slice at index index, replacing them with elements.
+// splice removes amount elements from slice at index, replacing them with elements.
 func splice(slice []Diff, index int, amount int, elements ...Diff) []Diff {
 	if len(elements) == amount {
 		// Easy case: overwrite the relevant items.
@@ -738,8 +736,8 @@ var (
 	nonAlphaNumericRegex = regexp.MustCompile(`[^a-zA-Z0-9]`)
 	whitespaceRegex      = regexp.MustCompile(`\s`)
 	linebreakRegex       = regexp.MustCompile(`[\r\n]`)
-	blanklineEndRegex    = regexp.MustCompile(`\n\r?\n$`)
-	blanklineStartRegex  = regexp.MustCompile(`^\r?\n\r?\n`)
+	blanklinesEndRegex   = regexp.MustCompile(`\n\r?\n$`)
+	//blanklinesStartRegex = regexp.MustCompile(`^\r?\n\r?\n`)
 )
 
 // diffCleanupSemanticScore computes a score representing whether the internal boundary falls on logical boundaries.
@@ -762,8 +760,8 @@ func diffCleanupSemanticScore(one, two string) int {
 	whitespace2 := nonAlphaNumeric2 && whitespaceRegex.MatchString(char2)
 	lineBreak1 := whitespace1 && linebreakRegex.MatchString(char1)
 	lineBreak2 := whitespace2 && linebreakRegex.MatchString(char2)
-	blankLine1 := lineBreak1 && blanklineEndRegex.MatchString(one)
-	blankLine2 := lineBreak2 && blanklineEndRegex.MatchString(two)
+	blankLine1 := lineBreak1 && blanklinesEndRegex.MatchString(one)
+	blankLine2 := lineBreak2 && blanklinesEndRegex.MatchString(two)
 
 	if blankLine1 || blankLine2 {
 		// Five points for blank lines.
@@ -1361,18 +1359,29 @@ func (dmp *DiffMatchPatch) diffLinesToStringsMunge(text string, lineArray *[]str
 	return strs
 }
 
-// DiffStrType represents one diff operation
-type DiffStrType struct {
+// DiffPrettyStyle represents one diff operation
+type DiffPrettyStyle struct {
 	Type string
 	Text string
 }
 
-func (diff *Diff) GetDiffStrType() DiffStrType {
+func (diff *Diff) GetDiffPrettyStyle() DiffPrettyStyle {
 	if diff == nil {
-		return DiffStrType{}
+		return DiffPrettyStyle{}
 	}
-	return DiffStrType{
+	return DiffPrettyStyle{
 		Type: diff.Type.String(),
 		Text: diff.Text,
 	}
+}
+
+func (dmp *DiffMatchPatch) GetDiffPrettyStyle(diffs []Diff) []DiffPrettyStyle {
+	dstArr := make([]DiffPrettyStyle, 0)
+	for _, d := range diffs {
+		dstArr = append(dstArr, DiffPrettyStyle{
+			Type: d.Type.String(),
+			Text: d.Text,
+		})
+	}
+	return dstArr
 }

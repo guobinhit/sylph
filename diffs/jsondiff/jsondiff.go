@@ -1,3 +1,9 @@
+// Copyright 2022 The Sylph Authors. All rights reserved.
+// Use of this source code is governed by a MIT-style
+// license that can be found in the LICENSE file.
+// The original git is located at https://github.com/nsf/jsondiff and
+// was involved into https://github.com/guobin/sylph on September 9, 2022.
+
 package jsondiff
 
 import (

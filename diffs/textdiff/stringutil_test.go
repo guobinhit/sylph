@@ -73,7 +73,6 @@ func TestLastIndexOf(t *testing.T) {
 		String   string
 		Pattern  string
 		Position int
-
 		Expected int
 	}
 

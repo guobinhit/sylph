@@ -1,11 +1,3 @@
-// Copyright (c) 2012-2016 The go-diff authors. All rights reserved.
-// https://github.com/sergi/go-diff
-// See the included LICENSE file for license details.
-//
-// go-diff is a Go implementation of Google's Diff, Match, and Patch library
-// Original library is Copyright (c) 2006 Google Inc.
-// http://code.google.com/p/google-diff-match-patch/
-
 package textdiff
 
 import (
@@ -1451,9 +1443,21 @@ func Test_DiffMain(t *testing.T) {
 
 	dmp := New()
 	diffs := dmp.DiffMain(s1, s2, false)
-	for _, d := range diffs {
-		fmt.Println(d.GetDiffStrType())
-		fmt.Println("----")
-	}
-	fmt.Println(utils.Json(diffs))
+	fmt.Println(utils.Json(dmp.GetDiffPrettyStyle(diffs)))
+}
+
+func TestDiffMatchPatch_DiffPrettyText(t *testing.T) {
+	s1 := "`Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n"
+	s2 := "I am the very model of a modern major general,\nI've information vegetable, animal, and mineral,\nI know the kings of England, and I quote the fights historical,\nFrom Marathon to Waterloo, in order categorical.\n"
+
+	dmp := New()
+	diffs := dmp.DiffMain(s1, s2, false)
+	fmt.Println(dmp.DiffPrettyText(diffs))
+	fmt.Println("------")
+	fmt.Println(dmp.DiffText1(diffs))
+	fmt.Println("------")
+	fmt.Println(dmp.DiffText2(diffs))
+	fmt.Println("------")
+	fmt.Println(dmp.DiffToDelta(diffs))
+	fmt.Println("------")
 }
