@@ -11,6 +11,7 @@ Now `sylph` project structure is:
 - sylph:
     - `constant`
     - `dates`
+    - `diffs`
     - `maps`
     - `maths`
     - `pointers`

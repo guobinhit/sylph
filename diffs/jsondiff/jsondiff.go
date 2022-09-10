@@ -67,7 +67,7 @@ type Options struct {
 	SkipMatches bool
 }
 
-func SkippedArrayElement(n int) string {
+func skippedArrayElement(n int) string {
 	if n == 1 {
 		return "...skipped 1 array element..."
 	} else {
@@ -76,7 +76,7 @@ func SkippedArrayElement(n int) string {
 	}
 }
 
-func SkippedObjectProperty(n int) string {
+func skippedObjectProperty(n int) string {
 	if n == 1 {
 		return "...skipped 1 object property..."
 	} else {
@@ -85,8 +85,8 @@ func SkippedObjectProperty(n int) string {
 	}
 }
 
-// DefaultJSONOptions Provides a set of options in JSON format that are fully parseable.
-func DefaultJSONOptions() Options {
+// DefaultJsonOptions Provides a set of options in JSON format that are fully parseable.
+func DefaultJsonOptions() Options {
 	return Options{
 		Added:            Tag{Begin: "\"added\":{", End: "}"},
 		Removed:          Tag{Begin: "\"removed\":{", End: "}"},
@@ -104,22 +104,22 @@ func DefaultConsoleOptions() Options {
 		Removed:               Tag{Begin: "\033[0;31m", End: "\033[0m"},
 		Changed:               Tag{Begin: "\033[0;33m", End: "\033[0m"},
 		Skipped:               Tag{Begin: "\033[0;90m", End: "\033[0m"},
-		SkippedArrayElement:   SkippedArrayElement,
-		SkippedObjectProperty: SkippedObjectProperty,
+		SkippedArrayElement:   skippedArrayElement,
+		SkippedObjectProperty: skippedObjectProperty,
 		ChangedSeparator:      " => ",
 		Indent:                "    ",
 	}
 }
 
-// DefaultHTMLOptions Provides a set of options that are well suited for HTML output. Works best inside <pre> tag.
-func DefaultHTMLOptions() Options {
+// DefaultHtmlOptions Provides a set of options that are well suited for HTML output. Works best inside <pre> tag.
+func DefaultHtmlOptions() Options {
 	return Options{
 		Added:                 Tag{Begin: `<span style="background-color: #8bff7f">`, End: `</span>`},
 		Removed:               Tag{Begin: `<span style="background-color: #fd7f7f">`, End: `</span>`},
 		Changed:               Tag{Begin: `<span style="background-color: #fcff7f">`, End: `</span>`},
 		Skipped:               Tag{Begin: `<span style="color: rgba(0, 0, 0, 0.3)">`, End: `</span>`},
-		SkippedArrayElement:   SkippedArrayElement,
-		SkippedObjectProperty: SkippedObjectProperty,
+		SkippedArrayElement:   skippedArrayElement,
+		SkippedObjectProperty: skippedObjectProperty,
 		ChangedSeparator:      " => ",
 		Indent:                "    ",
 	}
@@ -640,7 +640,7 @@ func (ctx *context) printDiff(a, b interface{}) string {
 func Compare(a, b []byte, opts ...Options) (DiffType, string) {
 	// If len(opts) != 1, then use default json options
 	if len(opts) != 1 {
-		opts = append(opts, DefaultJSONOptions())
+		opts = append(opts, DefaultJsonOptions())
 	}
 	var av, bv interface{}
 	da := json.NewDecoder(bytes.NewReader(a))

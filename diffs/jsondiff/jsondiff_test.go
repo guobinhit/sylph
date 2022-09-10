@@ -251,7 +251,7 @@ func Test_JsonDiff(t *testing.T) {
 		"web_url": "https://github.com",
 	}
 
-	opts := DefaultJSONOptions()
+	opts := DefaultJsonOptions()
 	opts.SkipMatches = true
 	diffType, diffStr := Compare([]byte(utils.Json(beforeSnapshot)), []byte(utils.Json(afterSnapshot)), opts)
 	fmt.Println(diffType.String())
