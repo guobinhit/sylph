@@ -37,7 +37,7 @@ import (
 // return two result, diffType can ignore, diffStr is compare result.
 firstParam := map[string]interface{}{}
 secondParam := map[string]interface{}{}
-opts := DefaultJSONOptions()
+opts := DefaultJsonOptions()
 diffType, diffStr := jsondiff.Compare([]byte(utils.Json(firstParam)), []byte(utils.Json(secondParam)), opts)
 ```
 
