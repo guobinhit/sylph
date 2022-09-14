@@ -1,7 +1,7 @@
-// Copyright 2022 The Sylph Authors. All rights reserved.
+// Copyright (c) 2022 The Sylph Authors. All rights reserved.
 // Use of this source code is governed by a MIT-style
 // license that can be found in the LICENSE file.
-// The original git is located at https://github.com/nsf/jsondiff and
+// The original code is located at https://github.com/nsf/jsondiff and
 // was involved into https://github.com/guobin/sylph on September 9, 2022.
 
 package jsondiff
@@ -528,7 +528,6 @@ func (ctx *context) printCollectionDiff(cfg *collectionConfig, it dualIterator) 
 
 func (ctx *context) printDiff(a, b interface{}) string {
 	var buf bytes.Buffer
-
 	if a == nil || b == nil {
 		// either is nil, means there are just two cases:
 		// 1. both are nil => match

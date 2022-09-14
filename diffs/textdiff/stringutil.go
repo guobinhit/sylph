@@ -88,7 +88,7 @@ func intArrayToString(ns []uint32) string {
 	indexSeparator := IndexSeparator[0]
 
 	// Appr. 3 chars per num plus the comma.
-	b := []byte{}
+	var b []byte
 	for _, n := range ns {
 		b = strconv.AppendInt(b, int64(n), 10)
 		b = append(b, indexSeparator)

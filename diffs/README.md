@@ -25,7 +25,7 @@ There are three entities that need attention, as follows:
 In addition, there are three methods to facilitate us to build `options` param
 - `DefaultJsonOptions`
 - `DefaultConsoleOptions`
-- `DefaultHTMLOptions`
+- `DefaultHtmlOptions`
 
 
 ```go
