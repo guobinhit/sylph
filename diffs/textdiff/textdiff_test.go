@@ -1049,8 +1049,8 @@ func TestDiffDelta(t *testing.T) {
 	dmp := New()
 
 	for i, tc := range []TestCase{
-		{"Delta shorter than text", "jumps over the lazyx", "=4\t-1\t+ed\t=6\t-3\t+a\t=5\t+old dog", "Delta length (19) is different from source text length (20)"},
-		{"Delta longer than text", "umps over the lazy", "=4\t-1\t+ed\t=6\t-3\t+a\t=5\t+old dog", "Delta length (19) is different from source text length (18)"},
+		{"Delta shorter than text", "jumps over the lazyx", "=4\t-1\t+ed\t=6\t-3\t+a\t=5\t+old dog", "delta length (19) is different from source text length (20)"},
+		{"Delta longer than text", "umps over the lazy", "=4\t-1\t+ed\t=6\t-3\t+a\t=5\t+old dog", "delta length (19) is different from source text length (18)"},
 		{"Invalid URL escaping", "", "+%c3%xy", "invalid URL escape \"%xy\""},
 		{"Invalid UTF-8 sequence", "", "+%c3xy", "invalid UTF-8 token: \"\\xc3xy\""},
 		{"Invalid diff operation", "", "a", "Invalid diff operation in DiffFromDelta: a"},
