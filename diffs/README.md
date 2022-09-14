@@ -22,7 +22,7 @@ There are three entities that need attention, as follows:
 - `Options`, can use to custom print result.
 - `Tag`, a field type of `Options`.
 
-In addition, there are three methods to facilitate us to build `options` param
+In addition, there are three methods to facilitate use to build `options` param
 - `DefaultJsonOptions`
 - `DefaultConsoleOptions`
 - `DefaultHtmlOptions`
@@ -44,6 +44,7 @@ diffType, diffStr := jsondiff.Compare([]byte(utils.Json(firstParam)), []byte(uti
 
 # TextDiff
 
+The package of `textdiff` used to compare two text difference.
 
 ```go
 import (
