@@ -5,12 +5,12 @@ import (
 	"github.com/guobinhit/sylph/constant/string_const"
 )
 
-// If functions similar to ternary operators，if b is ture return f, else return s
-func If(b bool, f, s interface{}) interface{} {
+// If functions similar to ternary operators，if b is ture return t, else return f
+func If(b bool, t, f interface{}) interface{} {
 	if b {
-		return f
+		return t
 	}
-	return s
+	return f
 }
 
 // Json returns a json string.

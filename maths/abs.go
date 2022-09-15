@@ -2,6 +2,7 @@ package maths
 
 import (
 	"fmt"
+	"github.com/guobinhit/sylph/utils"
 	"math"
 )
 
@@ -10,10 +11,7 @@ func AbsInt8(v int8) int8 {
 	if v <= math.MinInt8 {
 		panic(fmt.Sprintf("int8 overflow: abs(%d)", v))
 	}
-	if v < 0 {
-		v = -v
-	}
-	return v
+	return utils.If(v < 0, -v, v).(int8)
 }
 
 // AbsInt16 returns the absolute value of v, panic when overflowed.
@@ -21,10 +19,7 @@ func AbsInt16(v int16) int16 {
 	if v <= math.MinInt16 {
 		panic(fmt.Sprintf("int16 overflow: abs(%d)", v))
 	}
-	if v < 0 {
-		v = -v
-	}
-	return v
+	return utils.If(v < 0, -v, v).(int16)
 }
 
 // AbsInt32 returns the absolute value of v, panic when overflowed.
@@ -32,10 +27,7 @@ func AbsInt32(v int32) int32 {
 	if v <= math.MinInt32 {
 		panic(fmt.Sprintf("int32 overflow: abs(%d)", v))
 	}
-	if v < 0 {
-		v = -v
-	}
-	return v
+	return utils.If(v < 0, -v, v).(int32)
 }
 
 // AbsInt64 returns the absolute value of v, panic when overflowed.
@@ -43,10 +35,7 @@ func AbsInt64(v int64) int64 {
 	if v <= math.MinInt64 {
 		panic(fmt.Sprintf("int64 overflow: abs(%d)", v))
 	}
-	if v < 0 {
-		v = -v
-	}
-	return v
+	return utils.If(v < 0, -v, v).(int64)
 }
 
 // AbsFloat32 returns the absolute value of v, panic when overflowed.

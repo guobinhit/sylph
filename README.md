@@ -217,8 +217,8 @@ import (
     "github.com/guobinhit/sylph/utils"
 )
 
-// If function similar to ternary operators，if b is ture return f, else return s.
-aValue := utils.If(b, f, s)
+// If function similar to ternary operators，if b is ture return t, else return f.
+aValue := utils.If(b, t, f)
 
 // Returns a json format string.
 aJsonString := utils.Json(struct{Value string `json:"value"`}{Value: "sylph"})
