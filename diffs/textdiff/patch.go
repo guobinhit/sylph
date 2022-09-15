@@ -60,7 +60,6 @@ func (p *Patch) String() string {
 		_, _ = text.WriteString(strings.Replace(url.QueryEscape(aDiff.Text), "+", " ", -1))
 		_, _ = text.WriteString("\n")
 	}
-
 	return unescaper.Replace(text.String())
 }
 
@@ -101,7 +100,6 @@ func (dmp *DiffMatchPatch) PatchAddContext(patch Patch, text string) Patch {
 	// Extend the lengths.
 	patch.Length1 += len(prefix) + len(suffix)
 	patch.Length2 += len(prefix) + len(suffix)
-
 	return patch
 }
 

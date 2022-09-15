@@ -8,7 +8,6 @@ import (
 // Returns -1 if no match found.
 func (dmp *DiffMatchPatch) MatchMain(text, pattern string, loc int) int {
 	// Check for null inputs not needed since null can't be passed in C#.
-
 	loc = int(math.Max(0, math.Min(float64(loc), float64(len(text)))))
 	if text == pattern {
 		// Shortcut (potentially not guaranteed by the algorithm)
@@ -51,7 +50,7 @@ func (dmp *DiffMatchPatch) MatchBitap(text, pattern string, loc int) int {
 
 	var binMin, binMid int
 	binMax := len(pattern) + len(text)
-	lastRd := []int{}
+	var lastRd []int
 	for d := 0; d < len(pattern); d++ {
 		// Scan for the best match; each iteration allows for one more error. Run a binary search to determine how far from 'loc' we can stray at this error level.
 		binMin = 0

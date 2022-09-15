@@ -13,32 +13,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func pretty(diffs []Diff) string {
-	var w bytes.Buffer
-
-	for i, diff := range diffs {
-		_, _ = w.WriteString(fmt.Sprintf("%v. ", i))
-
-		switch diff.Type {
-		case DiffInsert:
-			_, _ = w.WriteString("DiffIns")
-		case DiffDelete:
-			_, _ = w.WriteString("DiffDel")
-		case DiffEqual:
-			_, _ = w.WriteString("DiffEql")
-		default:
-			_, _ = w.WriteString("Unknown")
-		}
-
-		_, _ = w.WriteString(fmt.Sprintf(": %v\n", diff.Text))
-	}
-
-	return w.String()
-}
-
 func diffRebuildTexts(diffs []Diff) []string {
 	texts := []string{"", ""}
-
 	for _, d := range diffs {
 		if d.Type != DiffInsert {
 			texts[0] += d.Text
@@ -47,17 +23,14 @@ func diffRebuildTexts(diffs []Diff) []string {
 			texts[1] += d.Text
 		}
 	}
-
 	return texts
 }
 
 func TestDiffCommonPrefix(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Text1 string
-		Text2 string
-
+		Name     string
+		Text1    string
+		Text2    string
 		Expected int
 	}
 
@@ -75,9 +48,7 @@ func TestDiffCommonPrefix(t *testing.T) {
 
 func BenchmarkDiffCommonPrefix(b *testing.B) {
 	s := "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
-
 	dmp := New()
-
 	for i := 0; i < b.N; i++ {
 		dmp.DiffCommonPrefix(s, s)
 	}
@@ -85,9 +56,8 @@ func BenchmarkDiffCommonPrefix(b *testing.B) {
 
 func TestCommonPrefixLength(t *testing.T) {
 	type TestCase struct {
-		Text1 string
-		Text2 string
-
+		Text1    string
+		Text2    string
 		Expected int
 	}
 
@@ -103,11 +73,9 @@ func TestCommonPrefixLength(t *testing.T) {
 
 func TestDiffCommonSuffix(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Text1 string
-		Text2 string
-
+		Name     string
+		Text1    string
+		Text2    string
 		Expected int
 	}
 
@@ -127,9 +95,7 @@ var SinkInt int // exported sink var to avoid compiler optimizations in benchmar
 
 func BenchmarkDiffCommonSuffix(b *testing.B) {
 	s := "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
-
 	dmp := New()
-
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {
@@ -171,9 +137,8 @@ func BenchmarkCommonLength(b *testing.B) {
 
 func TestCommonSuffixLength(t *testing.T) {
 	type TestCase struct {
-		Text1 string
-		Text2 string
-
+		Text1    string
+		Text2    string
 		Expected int
 	}
 
@@ -190,11 +155,9 @@ func TestCommonSuffixLength(t *testing.T) {
 
 func TestDiffCommonOverlap(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Text1 string
-		Text2 string
-
+		Name     string
+		Text1    string
+		Text2    string
 		Expected int
 	}
 
@@ -215,9 +178,8 @@ func TestDiffCommonOverlap(t *testing.T) {
 
 func TestDiffHalfMatch(t *testing.T) {
 	type TestCase struct {
-		Text1 string
-		Text2 string
-
+		Text1    string
+		Text2    string
 		Expected []string
 	}
 
@@ -282,9 +244,8 @@ func TestDiffBisectSplit(t *testing.T) {
 
 func TestDiffLinesToChars(t *testing.T) {
 	type TestCase struct {
-		Text1 string
-		Text2 string
-
+		Text1          string
+		Text2          string
 		ExpectedChars1 string
 		ExpectedChars2 string
 		ExpectedLines  []string
@@ -326,9 +287,8 @@ func TestDiffLinesToChars(t *testing.T) {
 
 func TestDiffCharsToLines(t *testing.T) {
 	type TestCase struct {
-		Diffs []Diff
-		Lines []string
-
+		Diffs    []Diff
+		Lines    []string
 		Expected []Diff
 	}
 
@@ -454,10 +414,8 @@ func TestDiffCleanupMerge(t *testing.T) {
 
 func TestDiffCleanupSemanticLossless(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Diffs []Diff
-
+		Name     string
+		Diffs    []Diff
 		Expected []Diff
 	}
 
@@ -592,10 +550,8 @@ func TestDiffCleanupSemanticLossless(t *testing.T) {
 
 func TestDiffCleanupSemantic(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Diffs []Diff
-
+		Name     string
+		Diffs    []Diff
 		Expected []Diff
 	}
 
@@ -848,10 +804,8 @@ func TestDiffCleanupSemantic(t *testing.T) {
 
 func TestDiffCleanupEfficiency(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Diffs []Diff
-
+		Name     string
+		Diffs    []Diff
 		Expected []Diff
 	}
 
@@ -979,8 +933,7 @@ func TestDiffPrettyHtml(t *testing.T) {
 
 func TestDiffPrettyText(t *testing.T) {
 	type TestCase struct {
-		Diffs []Diff
-
+		Diffs    []Diff
 		Expected string
 	}
 
@@ -1004,8 +957,7 @@ func TestDiffPrettyText(t *testing.T) {
 
 func TestDiffText(t *testing.T) {
 	type TestCase struct {
-		Diffs []Diff
-
+		Diffs         []Diff
 		ExpectedText1 string
 		ExpectedText2 string
 	}
@@ -1030,7 +982,6 @@ func TestDiffText(t *testing.T) {
 	} {
 		actualText1 := dmp.DiffText1(tc.Diffs)
 		assert.Equal(t, tc.ExpectedText1, actualText1, fmt.Sprintf("Test case #%d, %#v", i, tc))
-
 		actualText2 := dmp.DiffText2(tc.Diffs)
 		assert.Equal(t, tc.ExpectedText2, actualText2, fmt.Sprintf("Test case #%d, %#v", i, tc))
 	}
@@ -1038,11 +989,9 @@ func TestDiffText(t *testing.T) {
 
 func TestDiffDelta(t *testing.T) {
 	type TestCase struct {
-		Name string
-
-		Text  string
-		Delta string
-
+		Name               string
+		Text               string
+		Delta              string
 		ErrorMessagePrefix string
 	}
 
@@ -1446,12 +1395,31 @@ func Test_DiffMain(t *testing.T) {
 	fmt.Println(utils.Json(dmp.GetDiffPrettyStyle(diffs)))
 }
 
+func pretty(diffs []Diff) string {
+	var w bytes.Buffer
+	for i, diff := range diffs {
+		_, _ = w.WriteString(fmt.Sprintf("%v. ", i))
+		switch diff.Type {
+		case DiffInsert:
+			_, _ = w.WriteString("DiffInsert")
+		case DiffDelete:
+			_, _ = w.WriteString("DiffDelete")
+		case DiffEqual:
+			_, _ = w.WriteString("DiffEqual")
+		default:
+			_, _ = w.WriteString("Unknown")
+		}
+		_, _ = w.WriteString(fmt.Sprintf(": %v\n", diff.Text))
+	}
+	return w.String()
+}
+
 func TestDiffMatchPatch_DiffPrettyText(t *testing.T) {
 	s1 := "`Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n"
 	s2 := "I am the very model of a modern major general,\nI've information vegetable, animal, and mineral,\nI know the kings of England, and I quote the fights historical,\nFrom Marathon to Waterloo, in order categorical.\n"
 
 	dmp := New()
-	diffs := dmp.DiffMain(s1, s2, false)
+	diffs := dmp.DiffMain(s1, s2, true)
 	fmt.Println(dmp.DiffPrettyText(diffs))
 	fmt.Println("------")
 	fmt.Println(dmp.DiffText1(diffs))
@@ -1460,4 +1428,5 @@ func TestDiffMatchPatch_DiffPrettyText(t *testing.T) {
 	fmt.Println("------")
 	fmt.Println(dmp.DiffToDelta(diffs))
 	fmt.Println("------")
+	fmt.Println(pretty(diffs))
 }

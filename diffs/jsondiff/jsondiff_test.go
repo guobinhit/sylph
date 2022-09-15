@@ -30,11 +30,36 @@ var compareCases = []struct {
 	{`{"a": 4213123123}`, `{"a": 4213123123}`, FullMatch},
 }
 
-func TestCompare(t *testing.T) {
+func TestCompare_DefaultJsonOptions(t *testing.T) {
+	opts := DefaultJsonOptions()
+	opts.PrintTypes = true
+	for i, c := range compareCases {
+		result, diffStr := Compare([]byte(c.a), []byte(c.b), opts)
+		fmt.Println(diffStr)
+		if result != c.result {
+			t.Errorf("case %d failed, got: %s, expected: %s", i, result, c.result)
+		}
+	}
+}
+
+func TestCompare_DefaultConsoleOptions(t *testing.T) {
 	opts := DefaultConsoleOptions()
 	opts.PrintTypes = false
 	for i, c := range compareCases {
-		result, _ := Compare([]byte(c.a), []byte(c.b), opts)
+		result, diffStr := Compare([]byte(c.a), []byte(c.b), opts)
+		fmt.Println(diffStr)
+		if result != c.result {
+			t.Errorf("case %d failed, got: %s, expected: %s", i, result, c.result)
+		}
+	}
+}
+
+func TestCompare_DefaultHtmlOptions(t *testing.T) {
+	opts := DefaultHtmlOptions()
+	opts.PrintTypes = false
+	for i, c := range compareCases {
+		result, diffStr := Compare([]byte(c.a), []byte(c.b), opts)
+		fmt.Println(diffStr)
 		if result != c.result {
 			t.Errorf("case %d failed, got: %s, expected: %s", i, result, c.result)
 		}
@@ -186,7 +211,6 @@ func TestDiffString(t *testing.T) {
 
 func TestCompareFloatsWithEpsilon(t *testing.T) {
 	epsilon := math.Nextafter(1.0, 2.0) - 1.0
-
 	opts := DefaultConsoleOptions()
 	opts.PrintTypes = false
 	opts.CompareNumbers = func(an, bn json.Number) bool {
@@ -233,7 +257,7 @@ func Test_JsonDiff(t *testing.T) {
 		"create_time": "2022-09-08 13:27:39",
 		"modify_time": "2022-09-08 13:28:10",
 		"data": map[string]interface{}{
-			"button_text": "Lock Detail",
+			"button_text": "Click Here",
 			"source":      "Hot Novel",
 		},
 		"id":     1234567890,
@@ -248,7 +272,7 @@ func Test_JsonDiff(t *testing.T) {
 		},
 		"id":      1234567890,
 		"status":  4,
-		"web_url": "https://github.com",
+		"web_url": "https://github.com/guobinhit",
 	}
 
 	opts := DefaultJsonOptions()

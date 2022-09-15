@@ -91,21 +91,21 @@ func splice(slice []Diff, index int, amount int, elements ...Diff) []Diff {
 
 // DiffMain finds the differences between two texts.
 // If an invalid UTF-8 sequence is encountered, it will be replaced by the Unicode replacement character.
-func (dmp *DiffMatchPatch) DiffMain(text1, text2 string, checklines bool) []Diff {
-	return dmp.DiffMainRunes([]rune(text1), []rune(text2), checklines)
+func (dmp *DiffMatchPatch) DiffMain(text1, text2 string, checkLines bool) []Diff {
+	return dmp.DiffMainRunes([]rune(text1), []rune(text2), checkLines)
 }
 
 // DiffMainRunes finds the differences between two rune sequences.
 // If an invalid UTF-8 sequence is encountered, it will be replaced by the Unicode replacement character.
-func (dmp *DiffMatchPatch) DiffMainRunes(text1, text2 []rune, checklines bool) []Diff {
+func (dmp *DiffMatchPatch) DiffMainRunes(text1, text2 []rune, checkLines bool) []Diff {
 	var deadline time.Time
 	if dmp.DiffTimeout > 0 {
 		deadline = time.Now().Add(dmp.DiffTimeout)
 	}
-	return dmp.diffMainRunes(text1, text2, checklines, deadline)
+	return dmp.diffMainRunes(text1, text2, checkLines, deadline)
 }
 
-func (dmp *DiffMatchPatch) diffMainRunes(text1, text2 []rune, checklines bool, deadline time.Time) []Diff {
+func (dmp *DiffMatchPatch) diffMainRunes(text1, text2 []rune, checkLines bool, deadline time.Time) []Diff {
 	if runesEqual(text1, text2) {
 		var diffs []Diff
 		if len(text1) > 0 {
@@ -126,7 +126,7 @@ func (dmp *DiffMatchPatch) diffMainRunes(text1, text2 []rune, checklines bool, d
 	text2 = text2[:len(text2)-commonLength]
 
 	// Compute the diff on the middle block.
-	diffs := dmp.diffCompute(text1, text2, checklines, deadline)
+	diffs := dmp.diffCompute(text1, text2, checkLines, deadline)
 
 	// Restore the prefix and suffix.
 	if len(commonPrefix) != 0 {
@@ -140,7 +140,7 @@ func (dmp *DiffMatchPatch) diffMainRunes(text1, text2 []rune, checklines bool, d
 }
 
 // diffCompute finds the differences between two rune slices.  Assumes that the texts do not have any common prefix or suffix.
-func (dmp *DiffMatchPatch) diffCompute(text1, text2 []rune, checklines bool, deadline time.Time) []Diff {
+func (dmp *DiffMatchPatch) diffCompute(text1, text2 []rune, checkLines bool, deadline time.Time) []Diff {
 	var diffs []Diff
 	if len(text1) == 0 {
 		// Just add some text (speedup).
@@ -187,14 +187,14 @@ func (dmp *DiffMatchPatch) diffCompute(text1, text2 []rune, checklines bool, dea
 		text2B := hm[3]
 		midCommon := hm[4]
 		// Send both pairs off for separate processing.
-		diffsA := dmp.diffMainRunes(text1A, text2A, checklines, deadline)
-		diffsB := dmp.diffMainRunes(text1B, text2B, checklines, deadline)
+		diffsA := dmp.diffMainRunes(text1A, text2A, checkLines, deadline)
+		diffsB := dmp.diffMainRunes(text1B, text2B, checkLines, deadline)
 		// Merge the results.
 		diffs = diffsA
 		diffs = append(diffs, Diff{DiffEqual, string(midCommon)})
 		diffs = append(diffs, diffsB...)
 		return diffs
-	} else if checklines && len(text1) > 100 && len(text2) > 100 {
+	} else if checkLines && len(text1) > 100 && len(text2) > 100 {
 		return dmp.diffLineMode(text1, text2, deadline)
 	}
 	return dmp.diffBisect(text1, text2, deadline)
