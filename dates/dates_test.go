@@ -334,3 +334,49 @@ func TestGetTimeAddSeconds(t *testing.T) {
 		})
 	}
 }
+
+func TestGetTimeSubDays(t *testing.T) {
+	t1, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 10:00:00", time.Local)
+	t2, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-05-13 10:00:00", time.Local)
+	type args struct {
+		t1 time.Time
+		t2 time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "t1 > t2",
+			args: args{
+				t1: t1,
+				t2: t2,
+			},
+			want: 30,
+		},
+		{
+			name: "t1 < t2",
+			args: args{
+				t1: t2,
+				t2: t1,
+			},
+			want: -30,
+		},
+		{
+			name: "t1 == t2",
+			args: args{
+				t1: t1,
+				t2: t1,
+			},
+			want: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetTimeSubDays(tt.args.t1, tt.args.t2); got != tt.want {
+				t.Errorf("GetTimeSubDays() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

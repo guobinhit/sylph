@@ -51,3 +51,25 @@ func GetTimeAddMinutes(d time.Time, minutes int) time.Time {
 func GetTimeAddSeconds(d time.Time, seconds int) time.Time {
 	return d.Add(time.Second * time.Duration(seconds))
 }
+
+// GetTimeSubDays returns number of days before two times
+// 1. When t1>t2, the result is negative;
+// 2. When t1=t2, the result is 0;
+// 3. When t1<t2, the result is positive.
+func GetTimeSubDays(t1, t2 time.Time) int {
+	var days int
+	isSwap := false
+	if t1.Unix() > t2.Unix() {
+		t1, t2 = t2, t1
+		isSwap = true
+	}
+	ans := t1.Add(time.Duration(t2.Sub(t1).Milliseconds()%86400000) * time.Millisecond)
+	days = int(t2.Sub(t1).Hours() / 24)
+	if ans.Day() != t1.Day() {
+		days += 1
+	}
+	if isSwap {
+		days = -days
+	}
+	return days
+}
