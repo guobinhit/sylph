@@ -109,13 +109,15 @@ import (
     "github.com/guobinhit/sylph/maps"
 )
 
-// Get a slice from map, element of slice is key of map, such as map is {"a":1, "b":2}
-// then aKeySlice is {"a", "b"}
+// Get a slice from map, element of slice is key of map, such as map is {"a":1, "b":2},
+// then aKeySlice is {"a", "b"}, we can use assert convert to actual type.
 aKeySlice := maps.Keys(map[string]string{"a":1, "b":2})
+aActualKeySlice := aKeySlice.([]string)
 
-// Get a slice from map, element of slice is value of map, such as map is {"a":1, "b":2}
-// then aValueSlice is {1, 2}
+// Get a slice from map, element of slice is value of map, such as map is {"a":1, "b":2},
+// then aValueSlice is {1, 2}, we can use assert convert to actual type.
 aValueSlice := maps.Values(map[string]string{"a":1, "b":2})
+aActualValueSlice := aValueSlice.([]int)
 ```
 
 ## maths
@@ -190,8 +192,9 @@ aFilterSlice := slices.FilterStrings([]string{"abc", "zora"}, func(v string) boo
 
 // Paging slice and returns the current page results and hasNext mark,
 // such as arr is {"1", "2", "3","4", "5"}, pageNum is 2 and pageLimit is 2,
-// then aPageSlice is {"3", "4"}, hasNext is true.
+// then aPageSlice is {"3", "4"}, hasNext is true. We can use assert convert to actual type.
 aPageSlice, hasNext := slices.Page([]string{"1", "2", "3","4", "5"}, 2, 2)
+aActualPageSlice := aPageSlice.([]string)
 ```
 
 ## strings
@@ -224,7 +227,8 @@ aValue := utils.If(b, t, f)
 aJsonString := utils.Json(struct{Value string `json:"value"`}{Value: "sylph"})
 
 // DeepCopy source and target must have the same structure, and target must be a pointer.
-utils.DeepCopy(struct{Value string `json:"value"`}{Value: "sylph"}, &struct{Value string `json:"value"`}{})
+emptyStruct := struct{Value string `json:"value"`}{}
+utils.DeepCopy(struct{Value string `json:"value"`}{Value: "sylph"}, &emptyStruct)
 ```
 
 ## constant
