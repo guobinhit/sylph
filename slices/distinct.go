@@ -7,10 +7,10 @@ func DistinctInts(s []int) []int {
 	}
 	ans := make([]int, 0)
 	aMap := make(map[int]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -23,10 +23,10 @@ func DistinctInt8s(s []int8) []int8 {
 	}
 	ans := make([]int8, 0)
 	aMap := make(map[int8]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -39,10 +39,10 @@ func DistinctInt16s(s []int16) []int16 {
 	}
 	ans := make([]int16, 0)
 	aMap := make(map[int16]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -55,10 +55,10 @@ func DistinctInt32s(s []int32) []int32 {
 	}
 	ans := make([]int32, 0)
 	aMap := make(map[int32]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -71,10 +71,10 @@ func DistinctInt64s(s []int64) []int64 {
 	}
 	ans := make([]int64, 0)
 	aMap := make(map[int64]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -87,10 +87,10 @@ func DistinctFloat32s(s []float32) []float32 {
 	}
 	ans := make([]float32, 0)
 	aMap := make(map[float32]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -103,10 +103,10 @@ func DistinctFloat64s(s []float64) []float64 {
 	}
 	ans := make([]float64, 0)
 	aMap := make(map[float64]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans
@@ -119,10 +119,10 @@ func DistinctStrings(s []string) []string {
 	}
 	ans := make([]string, 0)
 	aMap := make(map[string]struct{})
-	for _, i := range s {
-		if _, ok := aMap[i]; !ok {
-			ans = append(ans, i)
-			aMap[i] = struct{}{}
+	for _, v := range s {
+		if _, ok := aMap[v]; !ok {
+			ans = append(ans, v)
+			aMap[v] = struct{}{}
 		}
 	}
 	return ans

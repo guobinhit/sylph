@@ -7,8 +7,8 @@ func ContainInts(s []int, e int) bool {
 	if s == nil {
 		return false
 	}
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -20,8 +20,8 @@ func ContainInt8s(s []int8, e int8) bool {
 	if s == nil {
 		return false
 	}
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -33,8 +33,8 @@ func ContainInt16s(s []int16, e int16) bool {
 	if s == nil {
 		return false
 	}
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -46,8 +46,8 @@ func ContainInt32s(s []int32, e int32) bool {
 	if s == nil {
 		return false
 	}
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -56,8 +56,8 @@ func ContainInt32s(s []int32, e int32) bool {
 
 // ContainInt64s returns true if s contain e.
 func ContainInt64s(s []int64, e int64) bool {
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -66,8 +66,8 @@ func ContainInt64s(s []int64, e int64) bool {
 
 // ContainFloat32s returns true if s contain e.
 func ContainFloat32s(s []float32, e float32) bool {
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -76,8 +76,8 @@ func ContainFloat32s(s []float32, e float32) bool {
 
 // ContainFloat64s returns true if s contain e.
 func ContainFloat64s(s []float64, e float64) bool {
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -86,8 +86,8 @@ func ContainFloat64s(s []float64, e float64) bool {
 
 // ContainStrings returns true if s contain e.
 func ContainStrings(s []string, e string) bool {
-	for _, a := range s {
-		if a == e {
+	for _, v := range s {
+		if v == e {
 			return true
 		}
 	}
@@ -96,8 +96,8 @@ func ContainStrings(s []string, e string) bool {
 
 // ContainStringsIgnoreCase returns true if s contain e, ignore case of element.
 func ContainStringsIgnoreCase(s []string, e string) bool {
-	for _, a := range s {
-		if strings.ToLower(a) == strings.ToLower(e) {
+	for _, v := range s {
+		if strings.ToLower(v) == strings.ToLower(e) {
 			return true
 		}
 	}

@@ -6,8 +6,8 @@ func AllInts(s []int, fn func(v int) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -20,8 +20,8 @@ func AllInt8s(s []int8, fn func(v int8) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -34,8 +34,8 @@ func AllInt16s(s []int16, fn func(v int16) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -48,8 +48,8 @@ func AllInt32s(s []int32, fn func(v int32) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -62,8 +62,8 @@ func AllInt64s(s []int64, fn func(v int64) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -76,8 +76,8 @@ func AllFloat32s(s []float32, fn func(v float32) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -90,8 +90,8 @@ func AllFloat64s(s []float64, fn func(v float64) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}
@@ -104,8 +104,8 @@ func AllStrings(s []string, fn func(v string) bool) bool {
 	if len(s) == 0 {
 		return true
 	}
-	for _, elem := range s {
-		if !fn(elem) {
+	for _, v := range s {
+		if !fn(v) {
 			return false
 		}
 	}

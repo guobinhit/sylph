@@ -5,7 +5,7 @@ import (
 	"github.com/guobinhit/sylph/constant/string_const"
 )
 
-// If functions similar to ternary operators，if b is ture return t, else return f
+// If functions similar to ternary operators，if b is ture return t, else return f.
 func If(b bool, t, f interface{}) interface{} {
 	if b {
 		return t
