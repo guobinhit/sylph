@@ -2,7 +2,9 @@
 
 ![author](https://img.shields.io/badge/author-chariesgavin-blueviolet.svg)[![Go](https://github.com/guobinhit/sylph/actions/workflows/go.yml/badge.svg)](https://github.com/guobinhit/sylph/actions/workflows/go.yml)![last commit](https://img.shields.io/github/last-commit/guobinhit/sylph.svg)![issues](https://img.shields.io/github/issues/guobinhit/sylph.svg)![stars](https://img.shields.io/github/stars/guobinhit/sylph.svg)![forks](https://img.shields.io/github/forks/guobinhit/sylph.svg)![license](https://img.shields.io/github/license/guobinhit/sylph.svg)
 
-> Sylph is the fairy of the wind. It is said that the breeze is the whisper of the fairy. 
+> Sylph is the fairy of the wind. 
+> 
+> It is said that the breeze is the whisper of the fairy. 
 > 
 > Anyone with a pure heart will eventually become Sylph.
 
