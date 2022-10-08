@@ -104,9 +104,7 @@ func TestPage_Usage(t *testing.T) {
 			if targetArr == nil || len(targetArr) == 0 {
 				fmt.Println(fmt.Sprintf("got is nil: Page(%v, %v, %v)", tt.args.arr, tt.args.pageNum, tt.args.pageLimit))
 			} else {
-				for _, a := range targetArr {
-					fmt.Println("targetArr element of: ", a)
-				}
+				fmt.Println("targetArr: ", utils.Json(targetArr))
 			}
 		})
 	}
