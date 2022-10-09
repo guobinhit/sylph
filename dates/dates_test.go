@@ -45,8 +45,120 @@ func TestGetTodayEnd(t *testing.T) {
 	}
 }
 
+func TestGetMinuteStart(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:00", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetMinuteStart",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetMinuteStart(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetMinuteStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetMinuteEnd(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:59.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetMinuteEnd",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetMinuteEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetMinuteEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetHourStart(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:00:00", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetHourStart",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetHourStart(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetHourStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetHourEnd(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:59:59.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetHourEnd",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetHourEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetHourEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestGetDayStart(t *testing.T) {
-	dateStart, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 00:00:00", time.Local)
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 00:00:00", time.Local)
 	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
 	type args struct {
 		d time.Time
@@ -61,7 +173,7 @@ func TestGetDayStart(t *testing.T) {
 			args: args{
 				d: d,
 			},
-			want: dateStart,
+			want: dateWant,
 		},
 	}
 	for _, tt := range tests {
