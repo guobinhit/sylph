@@ -45,6 +45,62 @@ func TestGetTodayEnd(t *testing.T) {
 	}
 }
 
+func TestGetSecondStart(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetSecondStart",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetSecondStart(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetSecondStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetSecondEnd(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetMinuteEnd",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetSecondEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetSecondEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestGetMinuteStart(t *testing.T) {
 	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:00", time.Local)
 	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 12:23:34", time.Local)
@@ -460,7 +516,7 @@ func TestGetTimeSubDays(t *testing.T) {
 		want int
 	}{
 		{
-			name: "t1 > t2",
+			name: "t1 before t2",
 			args: args{
 				t1: t1,
 				t2: t2,
@@ -468,7 +524,7 @@ func TestGetTimeSubDays(t *testing.T) {
 			want: 30,
 		},
 		{
-			name: "t1 < t2",
+			name: "t1 after t2",
 			args: args{
 				t1: t2,
 				t2: t1,
@@ -476,7 +532,7 @@ func TestGetTimeSubDays(t *testing.T) {
 			want: -30,
 		},
 		{
-			name: "t1 == t2",
+			name: "t1 equal t2",
 			args: args{
 				t1: t1,
 				t2: t1,

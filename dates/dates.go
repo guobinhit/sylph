@@ -12,6 +12,16 @@ func GetTodayEnd() time.Time {
 	return GetDayEnd(time.Now())
 }
 
+// GetSecondStart returns specified second start time.
+func GetSecondStart(d time.Time) time.Time {
+	return d.Truncate(time.Second)
+}
+
+// GetSecondEnd returns specified second end time.
+func GetSecondEnd(d time.Time) time.Time {
+	return GetSecondStart(d).Add(time.Second - time.Nanosecond)
+}
+
 // GetMinuteStart returns specified minute start time.
 func GetMinuteStart(d time.Time) time.Time {
 	return d.Truncate(time.Minute)
@@ -73,9 +83,9 @@ func GetTimeAddSeconds(d time.Time, seconds int) time.Time {
 }
 
 // GetTimeSubDays returns number of days before two times
-// 1. When t1>t2, the result is negative;
-// 2. When t1=t2, the result is 0;
-// 3. When t1<t2, the result is positive.
+// 1. If t1 after t2 (like t1 is 2022-05-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is negative;
+// 2. If t1 equal t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is 0;
+// 3. If t1 before t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-05-13 10:00:00), the result is positive.
 func GetTimeSubDays(t1, t2 time.Time) int {
 	var days int
 	isSwap := false
