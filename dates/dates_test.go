@@ -242,7 +242,7 @@ func TestGetDayStart(t *testing.T) {
 }
 
 func TestGetDayEnd(t *testing.T) {
-	dateEnd, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 23:59:59.999999999", time.Local)
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 23:59:59.999999999", time.Local)
 	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
 	type args struct {
 		d time.Time
@@ -257,13 +257,125 @@ func TestGetDayEnd(t *testing.T) {
 			args: args{
 				d: d,
 			},
-			want: dateEnd,
+			want: dateWant,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := GetDayEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("GetDayEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetMonthStart(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-01 00:00:00", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetMonthStart",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetMonthStart(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetMonthStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetMonthEnd(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-30 23:59:59.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetMonthEnd",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetMonthEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetMonthEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetYearStart(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-01-01 00:00:00", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetYearStart",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetYearStart(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetYearStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetYearEnd(t *testing.T) {
+	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-12-31 23:59:59.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetYearEnd",
+			args: args{
+				d: d,
+			},
+			want: dateWant,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetYearEnd(tt.args.d); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetYearEnd() = %v, want %v", got, tt.want)
 			}
 		})
 	}

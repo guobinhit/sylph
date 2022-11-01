@@ -49,7 +49,27 @@ func GetDayStart(d time.Time) time.Time {
 
 // GetDayEnd returns specified day end time.
 func GetDayEnd(d time.Time) time.Time {
-	return time.Date(d.Year(), d.Month(), d.Day(), 23, 59, 59, int(time.Second-time.Nanosecond), d.Location())
+	return GetDayStart(d).AddDate(0, 0, 1).Add(-time.Nanosecond)
+}
+
+// GetMonthStart returns specified month start time.
+func GetMonthStart(d time.Time) time.Time {
+	return time.Date(d.Year(), d.Month(), 1, 0, 0, 0, 0, d.Location())
+}
+
+// GetMonthEnd returns specified month end time.
+func GetMonthEnd(d time.Time) time.Time {
+	return GetMonthStart(d).AddDate(0, 1, 0).Add(-time.Nanosecond)
+}
+
+// GetYearStart returns specified year start time.
+func GetYearStart(d time.Time) time.Time {
+	return time.Date(d.Year(), time.January, 1, 0, 0, 0, 0, d.Location())
+}
+
+// GetYearEnd returns specified year end time.
+func GetYearEnd(d time.Time) time.Time {
+	return GetYearStart(d).AddDate(1, 0, 0).Add(-time.Nanosecond)
 }
 
 // GetTimeAddYears returns specified time by add years.
