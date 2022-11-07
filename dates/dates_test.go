@@ -269,6 +269,84 @@ func TestGetDayEnd(t *testing.T) {
 	}
 }
 
+func TestGetWeekStart(t *testing.T) {
+	dateWantOfMonday, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-11 00:00:00", time.Local)
+	dateWantOfSunday, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-10 00:00:00", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d            time.Time
+		weekStartDay time.Weekday
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetWeekStart Monday",
+			args: args{
+				d:            d,
+				weekStartDay: time.Monday,
+			},
+			want: dateWantOfMonday,
+		},
+		{
+			name: "GetWeekStart Sunday",
+			args: args{
+				d:            d,
+				weekStartDay: time.Sunday,
+			},
+			want: dateWantOfSunday,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetWeekStart(tt.args.d, tt.args.weekStartDay); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetWeekStart() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGetWeekEnd(t *testing.T) {
+	dateWantOfMonday, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-17 23:59:59.999999999", time.Local)
+	dateWantOfSunday, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-16 23:59:59.999999999", time.Local)
+	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)
+	type args struct {
+		d            time.Time
+		weekStartDay time.Weekday
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "GetWeekEnd Monday",
+			args: args{
+				d:            d,
+				weekStartDay: time.Monday,
+			},
+			want: dateWantOfMonday,
+		},
+		{
+			name: "GetWeekEnd Sunday",
+			args: args{
+				d:            d,
+				weekStartDay: time.Sunday,
+			},
+			want: dateWantOfSunday,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetWeekEnd(tt.args.d, tt.args.weekStartDay); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetWeekEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestGetMonthStart(t *testing.T) {
 	dateWant, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-01 00:00:00", time.Local)
 	d, _ := time.ParseInLocation(date_const.YyyyMmDdHhMmSs, "2022-04-13 09:00:00", time.Local)

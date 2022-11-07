@@ -15,7 +15,7 @@ func GetCnOfYyyyMm(d time.Time) string {
 	return d.Format(date_const.CnOfYyyyMm)
 }
 
-// GetCnOfYyyyMmDd returns '2006-01-02' format date string.
+// GetCnOfYyyyMmDd returns '2006年01月02日' format date string.
 func GetCnOfYyyyMmDd(d time.Time) string {
 	return d.Format(date_const.CnOfYyyyMmDd)
 }

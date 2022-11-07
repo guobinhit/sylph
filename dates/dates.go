@@ -2,72 +2,94 @@ package dates
 
 import "time"
 
-// GetTodayStart returns today start time.
+// GetTodayStart returns start time of today.
 func GetTodayStart() time.Time {
 	return GetDayStart(time.Now())
 }
 
-// GetTodayEnd returns today end time.
+// GetTodayEnd returns end time of today.
 func GetTodayEnd() time.Time {
 	return GetDayEnd(time.Now())
 }
 
-// GetSecondStart returns specified second start time.
+// GetSecondStart returns specified start time of second.
 func GetSecondStart(d time.Time) time.Time {
 	return d.Truncate(time.Second)
 }
 
-// GetSecondEnd returns specified second end time.
+// GetSecondEnd returns specified end time of second.
 func GetSecondEnd(d time.Time) time.Time {
 	return GetSecondStart(d).Add(time.Second - time.Nanosecond)
 }
 
-// GetMinuteStart returns specified minute start time.
+// GetMinuteStart returns specified start time of minute.
 func GetMinuteStart(d time.Time) time.Time {
 	return d.Truncate(time.Minute)
 }
 
-// GetMinuteEnd returns specified minute end time.
+// GetMinuteEnd returns specified end time of minute.
 func GetMinuteEnd(d time.Time) time.Time {
 	return GetMinuteStart(d).Add(time.Minute - time.Nanosecond)
 }
 
-// GetHourStart returns specified hour start time.
+// GetHourStart returns specified start time of hour.
 func GetHourStart(d time.Time) time.Time {
 	return d.Truncate(time.Hour)
 }
 
-// GetHourEnd returns specified hour end time.
+// GetHourEnd returns specified end time of hour.
 func GetHourEnd(d time.Time) time.Time {
 	return GetHourStart(d).Add(time.Hour - time.Nanosecond)
 }
 
-// GetDayStart returns specified day start time.
+// GetDayStart returns specified start time day.
 func GetDayStart(d time.Time) time.Time {
 	return time.Date(d.Year(), d.Month(), d.Day(), 0, 0, 0, 0, d.Location())
 }
 
-// GetDayEnd returns specified day end time.
+// GetDayEnd returns specified end time of day.
 func GetDayEnd(d time.Time) time.Time {
 	return GetDayStart(d).AddDate(0, 0, 1).Add(-time.Nanosecond)
 }
 
-// GetMonthStart returns specified month start time.
+// GetWeekStart returns specified start time of week.
+// Param of weekStartDay is used to set the start time of week.
+func GetWeekStart(d time.Time, weekStartDay time.Weekday) time.Time {
+	t := GetDayStart(d)
+	weekday := int(t.Weekday())
+	if weekStartDay != time.Sunday {
+		weekStartDayInt := int(weekStartDay)
+		if weekday < weekStartDayInt {
+			weekday = weekday + 7 - weekStartDayInt
+		} else {
+			weekday = weekday - weekStartDayInt
+		}
+	}
+	return t.AddDate(0, 0, -weekday)
+}
+
+// GetWeekEnd returns specified end time of week.
+// Param of weekStartDay is used to set the start time of week.
+func GetWeekEnd(d time.Time, weekStartDay time.Weekday) time.Time {
+	return GetWeekStart(d, weekStartDay).AddDate(0, 0, 7).Add(-time.Nanosecond)
+}
+
+// GetMonthStart returns specified start time of month.
 func GetMonthStart(d time.Time) time.Time {
 	return time.Date(d.Year(), d.Month(), 1, 0, 0, 0, 0, d.Location())
 }
 
-// GetMonthEnd returns specified month end time.
+// GetMonthEnd returns specified end time of month.
 func GetMonthEnd(d time.Time) time.Time {
 	return GetMonthStart(d).AddDate(0, 1, 0).Add(-time.Nanosecond)
 }
 
-// GetYearStart returns specified year start time.
+// GetYearStart returns specified start time of year.
 func GetYearStart(d time.Time) time.Time {
 	return time.Date(d.Year(), time.January, 1, 0, 0, 0, 0, d.Location())
 }
 
-// GetYearEnd returns specified year end time.
+// GetYearEnd returns specified end time of year.
 func GetYearEnd(d time.Time) time.Time {
 	return GetYearStart(d).AddDate(1, 0, 0).Add(-time.Nanosecond)
 }
@@ -103,9 +125,9 @@ func GetTimeAddSeconds(d time.Time, seconds int) time.Time {
 }
 
 // GetTimeSubDays returns number of days before two times
-// 1. If t1 after t2 (like t1 is 2022-05-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is negative;
-// 2. If t1 equal t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is 0;
-// 3. If t1 before t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-05-13 10:00:00), the result is positive.
+// 1. t1 after t2 (like t1 is 2022-05-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is negative;
+// 2. t1 equal t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-04-13 10:00:00), the result is 0;
+// 3. t1 before t2 (like t1 is 2022-04-13 10:00:00, t2 is 2022-05-13 10:00:00), the result is positive.
 func GetTimeSubDays(t1, t2 time.Time) int {
 	var days int
 	isSwap := false
