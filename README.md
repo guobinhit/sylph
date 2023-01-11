@@ -234,19 +234,4 @@ emptyStruct := struct{Value string `json:"value"`}{}
 utils.DeepCopy(struct{Value string `json:"value"`}{Value: "sylph"}, &emptyStruct)
 ```
 
-## constant
-
-```go
-import (
-    "github.com/guobinhit/sylph/constant/date_const"
-    "github.com/guobinhit/sylph/constant/string_const"
-)
-
-// Define dates format constant, use it directly.
-aYyyyMmDdHhMmSsFormat := date_const.YyyyMmDdHhMmSs
-
-// Define common strings type constant, use it directly.
-aEnglishComma := string_const.EnglishComma
-```
-
 Finally, good luck guys!
