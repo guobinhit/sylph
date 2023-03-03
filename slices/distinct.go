@@ -2,7 +2,7 @@ package slices
 
 // DistinctInts remove duplicate element in slices.
 func DistinctInts(s []int) []int {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]int, 0)
@@ -18,7 +18,7 @@ func DistinctInts(s []int) []int {
 
 // DistinctInt8s remove duplicate element in slices.
 func DistinctInt8s(s []int8) []int8 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]int8, 0)
@@ -34,7 +34,7 @@ func DistinctInt8s(s []int8) []int8 {
 
 // DistinctInt16s remove duplicate element in slices.
 func DistinctInt16s(s []int16) []int16 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]int16, 0)
@@ -50,7 +50,7 @@ func DistinctInt16s(s []int16) []int16 {
 
 // DistinctInt32s remove duplicate element in slices.
 func DistinctInt32s(s []int32) []int32 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]int32, 0)
@@ -66,7 +66,7 @@ func DistinctInt32s(s []int32) []int32 {
 
 // DistinctInt64s remove duplicate element in slices.
 func DistinctInt64s(s []int64) []int64 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]int64, 0)
@@ -82,7 +82,7 @@ func DistinctInt64s(s []int64) []int64 {
 
 // DistinctFloat32s remove duplicate element in slices.
 func DistinctFloat32s(s []float32) []float32 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]float32, 0)
@@ -98,7 +98,7 @@ func DistinctFloat32s(s []float32) []float32 {
 
 // DistinctFloat64s remove duplicate element in slices.
 func DistinctFloat64s(s []float64) []float64 {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]float64, 0)
@@ -114,7 +114,7 @@ func DistinctFloat64s(s []float64) []float64 {
 
 // DistinctStrings remove duplicate element in slices.
 func DistinctStrings(s []string) []string {
-	if s == nil || len(s) == 0 {
+	if len(s) == 0 {
 		return s
 	}
 	ans := make([]string, 0)
